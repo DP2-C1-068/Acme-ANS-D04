@@ -1,0 +1,23 @@
+# validation-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+acme.validation.technician.license-number.message  	= Debe tener 2-3 letras mayúsculas seguidas de 6 dígitos (ejemplo: AB123456 o ABC987654).
+acme.validation.technician.phone.message =  Debe tener entre 6 y 15 dígitos, opcionalmente comenzando con '+'. (Ejemplo: +123456789 o 987654321).
+acme.validation.technician.specialisation.message =  Debe contener entre 1 y 50 caracteres.
+acme.validation.technician.certifications.message =  No debe exceder los 255 caracteres.
+
+acme.validation.maintenance-record.certifications.message =  No debe exceder los 255 caracteres.
+
+acme.validation.job.duplicated-ticker.message  = Referencia ya usada
+acme.validation.job.ticker.message			   = La referencia sólo puede contener letras, dígitos, subrayados y guiones
+acme.validation.job.deadline.message		   = Deadline demasiado próximo
+acme.validation.job.workload.message    	   = Carga de trabajo incorrecta
+
+acme.validation.whine.redress.message	 	   = Proporcione alguna justificación

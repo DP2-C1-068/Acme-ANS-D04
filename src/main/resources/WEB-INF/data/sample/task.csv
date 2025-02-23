@@ -1,0 +1,5 @@
+key,type,description,priority,estimatedDuration,key:maintenance-record,key:technician
+task-001,REPAIR,"Hay que arreglar el motor, se ha averiado",10,50,maintenance-record-01,technician-01
+task-002,INSPECTION,"Tarea de inspeccion rutinaria",5,7,maintenance-record-01,technician-02
+task-003,MAINTENANCE,"Tarea de mantenimiento rutinaria",4,10,maintenance-record-02,technician-01
+task-004,SYSTEM_CHECK,"Tarea de revision del sistema",6,20,maintenance-record-02,technician-02
