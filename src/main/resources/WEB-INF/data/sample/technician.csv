@@ -1,4 +1,4 @@
 key,license-number,phone-number,specialisation,annual-health-test,years-of-experience,certifications,key:userAccount
 technician-01,"ABC123456","+123456","Especializado en motores de jet",true, 14,"Certificación en mantenimiento de aeronaves,Certificación en seguridad aérea",user-account-technician-01
 technician-02,"DE654321","123456789012345","Especializado en sistemas eléctricos",true,8,"Certificación en sistemas de aviación,Licencia de mantenimiento eléctrico",user-account-technician-02
-technician-03,"GHI789012","+123456789012345","Especializado en aeronaves comerciales",true, 32,"Certificación en aeronaves comerciales,Curso de mantenimiento de motores",user-account-consumer-01
+technician-03,"GHI789012","+123456789012345","Especializado en aeronaves comerciales",false, 32,"Certificación en aeronaves comerciales,Curso de mantenimiento de motores",user-account-consumer-01

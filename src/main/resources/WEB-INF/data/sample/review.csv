@@ -1,0 +1,7 @@
+key,name,posted-at,subject,text,score,is-recommended,key:airline,key:airport
+review-001,"Mayro",2005/09/01 10:00,"Opinión sobre restaurante","El restaurante de este aeropuerto es carísimo, yo podría montar uno mejor y más barato",2.4,false,airline-01,airport-01
+review-002,"Lucía",2005/09/01 10:00,"Opinión sobre salón VIP","La experiencia en el salón VIP fue excelente, aunque un poco ruidoso",8.8,true,airline-01,airport-02
+review-003,"Carlos",2005/09/01 10:00,"Opinión sobre Duty-Free","La tienda libre de impuestos tiene una excelente selección, pero los precios son altos",6.1,true,airline-01,airport-03
+review-004,"Ana",2005/09/01 10:00,"Opinión sobre transporte VIP","El transporte VIP fue muy cómodo y puntual, pero el precio es excesivo",6.5,true,airline-02,airport-04
+review-005,"Pedro",2005/09/01 10:00,"Opinión sobre zona de descanso","La zona de descanso es bastante tranquila, pero le falta más privacidad",4.0,false,airline-03,airport-05
+review-006,"Maria",2005/09/01 10:00,"Opinión sobre Wi-Fi gratis","El Wi-Fi gratis es muy lento y no me permitió trabajar correctamente",2.9,false,airline-04,airport-08
