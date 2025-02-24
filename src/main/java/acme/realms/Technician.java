@@ -37,6 +37,7 @@ public class Technician extends AbstractRole {
 	@Automapped
 	private String				specialisation;
 
+	@Mandatory
 	@Automapped
 	private boolean				annualHealthTest;
 
