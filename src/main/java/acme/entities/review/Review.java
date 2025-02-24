@@ -16,8 +16,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.airline.Airline;
-import acme.entities.airport.Airport;
+import acme.entities.airline.AirlineAirport;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -64,10 +63,5 @@ public class Review extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Airline				airline;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Airport				airport;
+	private AirlineAirport		airlineAirport;
 }
