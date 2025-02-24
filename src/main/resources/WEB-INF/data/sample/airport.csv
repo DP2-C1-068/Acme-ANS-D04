@@ -1,11 +1,11 @@
-key,name,iata-code,scope,city,country,website,email,phone-number
-airport-01,"Aeroport Josep Tarradellas El Prat",AAA,INTERNATIONAL,"Barcelona","España","https://www.aena.es/es/josep-tarradellas-barcelona-el-prat.html","Aeroport@aena.com",84932342
-airport-02,"Adolfo Suárez Madrid-Barajas",AAB,DOMESTIC,"Madrid","España","https://www.aena.es/es/adolfo-suarez-madrid-barajas.html","info@aena.es","+3491321000"
-airport-03,"John F. Kennedy International Airport",JFK,REGIONAL,"New York","USA","https://www.jfkairport.com","info@jfkairport.com","+17182444444"
-airport-04,"Heathrow Airport",LHR,INTERNATIONAL,"London","United Kingdom","https://www.heathrow.com","contact@heathrow.com","+448443351801"
-airport-05,"Paris Charles de Gaulle",CDG,INTERNATIONAL,"Paris","France","https://www.parisaeroport.fr","contact@parisaeroport.fr","+33170363950"
-airport-06,"El Dorado International Airport",BOG,DOMESTIC,"Bogotá","Colombia","https://www.eldorado.aero","info@eldorado.aero","+5712662000"
-airport-07,"Benito Juárez International Airport",MEX,DOMESTIC,"Mexico City","Mexico","https://www.aicm.com.mx","atencion@aicm.com.mx","+525524822400"
-airport-08,"Changi Airport",SIN,INTERNATIONAL,"Singapore","Singapore","https://www.changiairport.com","contact@changiairport.com","+656596868"
-airport-09,"Dubai International Airport",DXB,REGIONAL,"Dubai","United Arab Emirates","https://www.dubaiairports.ae","info@dubaiairports.ae","+97142245555"
-airport-10,"Tokyo Haneda Airport",HND,INTERNATIONAL,"Tokyo","Japan","https://www.haneda-airport.jp","info@haneda-airport.jp","+81357578111"
+key,name,iata-code,scope,city,country,website,email,phone-number,key:airline
+airport-01,"Aeroport Josep Tarradellas El Prat",AAA,INTERNATIONAL,"Barcelona","España","https://www.aena.es/es/josep-tarradellas-barcelona-el-prat.html","Aeroport@aena.com",84932342,airline-01
+airport-02,"Adolfo Suárez Madrid-Barajas",AAB,DOMESTIC,"Madrid","España","https://www.aena.es/es/adolfo-suarez-madrid-barajas.html","info@aena.es","+3491321000",airline-01
+airport-03,"John F. Kennedy International Airport",JFK,REGIONAL,"New York","USA","https://www.jfkairport.com","info@jfkairport.com","+17182444444",airline-01
+airport-04,"Heathrow Airport",LHR,INTERNATIONAL,"London","United Kingdom","https://www.heathrow.com","contact@heathrow.com","+448443351801",airline-02
+airport-05,"Paris Charles de Gaulle",CDG,INTERNATIONAL,"Paris","France","https://www.parisaeroport.fr","contact@parisaeroport.fr","+33170363950",airline-03
+airport-06,"El Dorado International Airport",BOG,DOMESTIC,"Bogotá","Colombia","https://www.eldorado.aero","info@eldorado.aero","+5712662000",airline-04
+airport-07,"Benito Juárez International Airport",MEX,DOMESTIC,"Mexico City","Mexico","https://www.aicm.com.mx","atencion@aicm.com.mx","+525524822400",airline-04
+airport-08,"Changi Airport",SIN,INTERNATIONAL,"Singapore","Singapore","https://www.changiairport.com","contact@changiairport.com","+656596868",airline-04
+airport-09,"Dubai International Airport",DXB,REGIONAL,"Dubai","United Arab Emirates","https://www.dubaiairports.ae","info@dubaiairports.ae","+97142245555",airline-02
+airport-10,"Tokyo Haneda Airport",HND,INTERNATIONAL,"Tokyo","Japan","https://www.haneda-airport.jp","info@haneda-airport.jp","+81357578111",airline-03
