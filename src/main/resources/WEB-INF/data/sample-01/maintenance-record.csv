@@ -1,6 +1,6 @@
-key,startedAt,status,nextInspection,estimatedCost,notes,key:aircraft,key:technician
-maintenance-record-001,2022/09/01 10:00,COMPLETED,2026/01/01 10:00,EUR 100.00,"Sin problemas, aeronave en estado operativo",aircraft-01,technician-01
-maintenance-record-002,2024/05/21 13:59,PENDING,2025/09/01 10:00,EUR 100.00," falta una pieza, a la espera del proveedor",aircraft-02,technician-01
-maintenance-record-003,2024/11/27 21:59,IN_PROGRESS,2025/03/01 10:00,EUR 100.00,"Daños graves, reparación a largo plazo",aircraft-03,technician-01
-maintenance-record-004,2021/04/12 07:12,COMPLETED,2026/04/12 10:00,EUR 100.00,null,aircraft-01,technician-02
-maintenance-record-005,2024/03/22 12:15,COMPLETED,2027/01/01 10:00,EUR 100.00,"Sin problemas, aeronave pasa las pruebas",aircraft-04,technician-02
+key,startedAt,status,nextInspection,estimatedCost,notes,dart-mode,key:aircraft,key:technician
+maintenance-record-001,2022/09/01 10:00,COMPLETED,2026/01/01 10:00,EUR 100.00,"Sin problemas, aeronave en estado operativo",true,aircraft-01,technician-01
+maintenance-record-002,2024/05/21 13:59,PENDING,2025/09/01 10:00,EUR 100.00," falta una pieza, a la espera del proveedor",false,aircraft-02,technician-01
+maintenance-record-003,2024/11/27 21:59,IN_PROGRESS,2025/03/01 10:00,EUR 100.00,"Daños graves, reparación a largo plazo",true,aircraft-03,technician-01
+maintenance-record-004,2021/04/12 07:12,COMPLETED,2026/04/12 10:00,EUR 100.00,null,true,aircraft-01,technician-02
+maintenance-record-005,2024/03/22 12:15,COMPLETED,2027/01/01 10:00,EUR 100.00,"Sin problemas, aeronave pasa las pruebas",false,aircraft-04,technician-02

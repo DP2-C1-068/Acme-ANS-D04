@@ -17,6 +17,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.constraints.ValidLongText;
+import acme.constraints.ValidMaintenanceRecord;
 import acme.entities.airline.Aircraft;
 import acme.realms.Technician;
 import lombok.Getter;
@@ -25,6 +26,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidMaintenanceRecord
 public class MaintenanceRecord extends AbstractEntity {
 
 	// Serialization ----------------------------------------------------------------
@@ -55,6 +57,11 @@ public class MaintenanceRecord extends AbstractEntity {
 	@ValidLongText
 	@Automapped
 	private String				notes;
+
+	@Mandatory
+	// HINT: @valid by default
+	@Automapped
+	private boolean				draftMode;
 
 	// Relations ------------------------------------------------
 
