@@ -11,6 +11,8 @@
 acme.validation.header.message      = Must have from 1 to 75 characters
 acme.validation.text.message           = Must have from 1 to 255 characters
 
+acme.validation.aircraft.duplicated-registration-number.message = Duplicated registration number.
+
 acme.validation.airline.iata-code.message = Must follow the pattern: 3 uppercase letters (e.g., ABC or DFX).
 
 acme.validation.technician.licenseNumber.message  	= Must follow the pattern: 2-3 uppercase letters followed by 6 digits (e.g., AB123456 or ABC987654).

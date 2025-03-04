@@ -14,6 +14,7 @@ import acme.constraints.ValidLicenseNumber;
 import acme.constraints.ValidLongText;
 import acme.constraints.ValidPhoneNumber;
 import acme.constraints.ValidShortText;
+import acme.constraints.ValidTechnician;
 import acme.entities.maintenance.AnnualHealthTest;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidTechnician
 public class Technician extends AbstractRole {
 
 	// Serializaition version ----------------------------------------------

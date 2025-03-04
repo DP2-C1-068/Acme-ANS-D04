@@ -11,6 +11,8 @@
 acme.validation.header.message      = Debe tener entre 1 y 75 caracteres
 acme.validation.text.message           = Debe tener entre 1 y 255 caracteres
 
+acme.validation.aircraft.duplicated-registration-number.message = Número de registro ya en uso.
+
 acme.validation.airline.iata-code.message = Deben ser 3 letras mayúsculas  (ejemplo: ABC o DEX).
 
 
