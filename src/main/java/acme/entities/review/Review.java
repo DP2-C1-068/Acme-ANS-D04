@@ -4,10 +4,8 @@ package acme.entities.review;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -15,8 +13,8 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
-import acme.entities.airline.AirlineAirport;
+import acme.constraints.ValidLongText;
+import acme.constraints.ValidShortText;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,7 +28,7 @@ public class Review extends AbstractEntity {
 
 	// Attributes
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidShortText
 	@Automapped
 	private String				name;
 
@@ -40,17 +38,17 @@ public class Review extends AbstractEntity {
 	private Date				postedAt;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidShortText
 	@Automapped
 	private String				subject;
 
 	@Mandatory
-	@ValidString
+	@ValidLongText
 	@Automapped
 	private String				text;
 
 	@Optional
-	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 1)
+	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 2)
 	@Automapped
 	private double				score;
 
@@ -60,8 +58,4 @@ public class Review extends AbstractEntity {
 
 	// Relations ---------------------------------------------
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private AirlineAirport		airlineAirport;
 }

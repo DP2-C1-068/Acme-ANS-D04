@@ -9,7 +9,7 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLongText;
 import acme.realms.Technician;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +29,7 @@ public class Task extends AbstractEntity {
 	private TaskType			type;
 
 	@Mandatory
-	@ValidString(min = 1)
+	@ValidLongText
 	@Automapped
 	private String				description;
 
@@ -44,11 +44,6 @@ public class Task extends AbstractEntity {
 	private int					estimatedDuration;
 
 	// Relations ------------------------------------------------
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private MaintenanceRecord	maintenanceRecord;
 
 	@Mandatory
 	@Valid

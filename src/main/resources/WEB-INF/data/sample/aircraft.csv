@@ -1,6 +1,6 @@
-key,model,registration-number,capacity,cargo-weight,status,details,key:airline
-aircraft-01,"AIRBUS A318","AIRBUS A318(1)",137,34000,true,"El A318 es el avión más pequeño de los Airbus",airline-01
-aircraft-02,"AIRBUS A319","AIRBUS A319(1)",124,24500,true,"El A319 es una versión del A320 acortada",airline-02
-aircraft-03,"AIRBUS A320-200","AIRBUS A320-200(1)",180,41980,true,"El Airbus A320-200 es el miembro fundador de la familia A320",airline-01
-aircraft-04,"ANTONOV AN24 26","ANTONOV AN24 26(1)",52,3400,false,"avión original de familia exitosa de transportes",airline-03
-aircraft-05,"ANTONOV AN24 26","ANTONOV AN24 26(2)",52,3400,true,"avión original de familia exitosa de transportes",airline-04
+key,model,registration-number,capacity,cargo-weight,status,details
+aircraft-01,"AIRBUS A318","AIRBUS A318(1)",137,34000,ACTIVE_SERVICE,"El A318 es el avión más pequeño de los Airbus"
+aircraft-02,"AIRBUS A319","AIRBUS A319(1)",124,24500,ACTIVE_SERVICE,"El A319 es una versión del A320 acortada"
+aircraft-03,"AIRBUS A320-200","AIRBUS A320-200(1)",180,41980,ACTIVE_SERVICE,"El Airbus A320-200 es el miembro fundador de la familia A320"
+aircraft-04,"ANTONOV AN24 26","ANTONOV AN24 26(1)",52,3400,UNDER_MAINTENANCE,"avión original de familia exitosa de transportes"
+aircraft-05,"ANTONOV AN24 26","ANTONOV AN24 26(2)",52,3400,ACTIVE_SERVICE,"avión original de familia exitosa de transportes"

@@ -1,11 +1,11 @@
-key,name,link,avg-dwell-time,promotion-code,discount,key:airport
-service-001,"Servicio de equipaje","https://media.istockphoto.com/id/1400155112/es/foto/maleta-amarilla-volando-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=l6MsJznjUHTaPfWItyFCiM9PahJugGesEQCv17s9ClI=",5,ABCD-23,EUR 50.00,airport-01
-service-002,"Salón VIP","https://media.istockphoto.com/id/1403460189/es/foto/salon-vip-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=ZyVbRuXPXjz09yV3JpnlHgCq0nGfoLfklz4g4Wm7LFE=",1,VIPX-24,EUR 100.00,airport-02
-service-003,"Restaurante Gourmet","https://media.istockphoto.com/id/1026953146/es/foto/restaurante-de-comida-de-lujo.jpg?s=612x612&w=0&k=20&c=hsg7ln3rwZdl6YmGHWR9s0RsfmMmxlPC-76ykRoxNpo=",2,GOUR-25,EUR 30.00,airport-03
-service-004,"Duty-Free Shop","https://media.istockphoto.com/id/1205299016/es/foto/tienda-libres-de-impuestos-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=a5V99oBq99Z9wmuCFTj8Qg6vekhwPWB9iLswy1yWiRM=",5,SALE-24,EUR 15.00,airport-04
-service-005,"Zona de Descanso","https://media.istockphoto.com/id/1033513768/es/foto/zona-de-descanso-en-un-aeropuerto.jpg?s=612x612&w=0&k=20&c=Xeb2BcmRO5AxJ1D0g3_9yTt8O-_5VgrdffH2uHhsDbs=",2,REST-25,EUR 20.00,airport-05
-service-006,"Spa y Masajes","https://media.istockphoto.com/id/1048340552/es/foto/spa-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=2C96HRp-jhXZMnBdEdrp2T4J6FxaKJgnkw_Go9vhpx8=",8,ASAD-23,EUR 40.00,airport-06
-service-007,"Transporte VIP","https://media.istockphoto.com/id/1129530977/es/foto/limusina-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=qQb0zSpspJwdJlvgY0ZWmrhGcjf26tn7v9rT1nbvMeQ=",8,VVIP-24,EUR 60.00,airport-07
-service-008,"Carga Rápida","https://media.istockphoto.com/id/1281349637/es/foto/paquete-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=dwH9Hnb4ee0gFXqqpl-LzB-M4bbCpTgI7brIjZmJXkw=",3,CARG-25,EUR 25.00,airport-08
-service-009,"Centro de Negocios","https://media.istockphoto.com/id/1099949457/es/foto/centro-de-negocios-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=7YXJL71acv5N-7q3EnHkIqC6xlMCmL2Vfj6J5pJ6jmM=",1,BUSI-23,EUR 50.00,airport-09
-service-010,"Wi-Fi Gratis","https://media.istockphoto.com/id/1195140806/es/foto/conexion-wifi-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=YwYMuWVzMZgKVe72XqOa_58Rohk2C2tmRlSb8rSCwMQ=",4,FREE-24,EUR 10.00,airport-10
+key,name,link,avg-dwell-time,promotion-code,discount
+service-001,"Servicio de equipaje","https://media.istockphoto.com/id/1400155112/es/foto/maleta-amarilla-volando-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=l6MsJznjUHTaPfWItyFCiM9PahJugGesEQCv17s9ClI=",5,ABCD-23,EUR 50.00
+service-002,"Salón VIP","https://media.istockphoto.com/id/1403460189/es/foto/salon-vip-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=ZyVbRuXPXjz09yV3JpnlHgCq0nGfoLfklz4g4Wm7LFE=",1,VIPX-24,EUR 100.00
+service-003,"Restaurante Gourmet","https://media.istockphoto.com/id/1026953146/es/foto/restaurante-de-comida-de-lujo.jpg?s=612x612&w=0&k=20&c=hsg7ln3rwZdl6YmGHWR9s0RsfmMmxlPC-76ykRoxNpo=",2,GOUR-25,EUR 30.00
+service-004,"Duty-Free Shop","https://media.istockphoto.com/id/1205299016/es/foto/tienda-libres-de-impuestos-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=a5V99oBq99Z9wmuCFTj8Qg6vekhwPWB9iLswy1yWiRM=",5,SALE-24,EUR 15.00
+service-005,"Zona de Descanso","https://media.istockphoto.com/id/1033513768/es/foto/zona-de-descanso-en-un-aeropuerto.jpg?s=612x612&w=0&k=20&c=Xeb2BcmRO5AxJ1D0g3_9yTt8O-_5VgrdffH2uHhsDbs=",2,REST-25,EUR 20.00
+service-006,"Spa y Masajes","https://media.istockphoto.com/id/1048340552/es/foto/spa-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=2C96HRp-jhXZMnBdEdrp2T4J6FxaKJgnkw_Go9vhpx8=",8,ASAD-23,EUR 40.00
+service-007,"Transporte VIP","https://media.istockphoto.com/id/1129530977/es/foto/limusina-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=qQb0zSpspJwdJlvgY0ZWmrhGcjf26tn7v9rT1nbvMeQ=",8,VVIP-24,EUR 60.00
+service-008,"Carga Rápida","https://media.istockphoto.com/id/1281349637/es/foto/paquete-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=dwH9Hnb4ee0gFXqqpl-LzB-M4bbCpTgI7brIjZmJXkw=",3,CARG-25,EUR 25.00
+service-009,"Centro de Negocios","https://media.istockphoto.com/id/1099949457/es/foto/centro-de-negocios-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=7YXJL71acv5N-7q3EnHkIqC6xlMCmL2Vfj6J5pJ6jmM=",1,BUSI-23,EUR 50.00
+service-010,"Wi-Fi Gratis","https://media.istockphoto.com/id/1195140806/es/foto/conexion-wifi-en-el-aeropuerto.jpg?s=612x612&w=0&k=20&c=YwYMuWVzMZgKVe72XqOa_58Rohk2C2tmRlSb8rSCwMQ=",4,FREE-24,EUR 10.00
