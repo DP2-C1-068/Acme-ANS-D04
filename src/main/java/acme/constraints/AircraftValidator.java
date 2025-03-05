@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.airline.Aircraft;
-import acme.entities.airline.AircraftRepository;
+import acme.entities.aircraft.Aircraft;
+import acme.entities.aircraft.AircraftRepository;
 
 @Validator
 public class AircraftValidator extends AbstractValidator<ValidAircraft, Aircraft> {

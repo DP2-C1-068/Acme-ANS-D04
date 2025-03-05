@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.PastOrPresent;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
@@ -16,9 +17,9 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
-import acme.constraints.ValidLongText;
 import acme.constraints.ValidMaintenanceRecord;
-import acme.entities.airline.Aircraft;
+import acme.constraints.ValidOptionalLongText;
+import acme.entities.aircraft.Aircraft;
 import acme.realms.Technician;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,9 +35,10 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	// Attributes ------------------------------------------------------------------------
 	@Mandatory
+	@PastOrPresent
 	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				startedAt;
+	private Date				moment;
 
 	@Mandatory
 	@Valid
@@ -46,15 +48,15 @@ public class MaintenanceRecord extends AbstractEntity {
 	@Mandatory
 	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				nextInspection;
+	private Date				inspectionDueDate;
 
 	@Mandatory
-	@ValidMoney(min = 0.00, max = 1000000.00)
+	@ValidMoney
 	@Automapped
 	private Money				estimatedCost;
 
 	@Optional
-	@ValidLongText
+	@ValidOptionalLongText
 	@Automapped
 	private String				notes;
 

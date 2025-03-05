@@ -1,6 +1,6 @@
 key,type,description,priority,estimatedDuration,draft-mode,key:technician
-task-001,REPAIR,"Hay que arreglar el motor, se ha averiado",10,50,true,technician-01
-task-002,INSPECTION,"Tarea de inspeccion rutinaria",5,7,false,technician-02
-task-003,MAINTENANCE,"Tarea de mantenimiento rutinaria",4,10,false,technician-01
-task-004,SYSTEM_CHECK,"Tarea de revision del sistema",6,20,false,technician-02
+task-001,REPAIR,"Hay que arreglar el motor, se ha averiado",10,50,TRUE,technician-01
+task-002,INSPECTION,"Tarea de inspeccion rutinaria",5,7,FALSE,technician-02
+task-003,MAINTENANCE,"Tarea de mantenimiento rutinaria",4,10,FALSE,technician-01
+task-004,SYSTEM_CHECK,"Tarea de revision del sistema",6,20,FALSE,technician-02
 task-005,REPAIR,"Tarea de reparacion del sistema",8,10,false,technician-01

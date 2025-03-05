@@ -1,5 +1,5 @@
 
-package acme.entities.airline;
+package acme.entities.aircraft;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +38,7 @@ public class Aircraft extends AbstractEntity {
 	private String				registrationNumber;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 250, integer = 3)
+	@ValidNumber(min = 0, max = 1000, integer = 3)
 	@Automapped
 	private int					capacity;
 
