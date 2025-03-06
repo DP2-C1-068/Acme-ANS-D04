@@ -1,6 +1,60 @@
 key,model,registration-number,capacity,cargo-weight,status,details
-aircraft-01,"AIRBUS A318","AIRBUS A318(1)",137,34000,ACTIVE_SERVICE,"El A318 es el avión más pequeño de los Airbus"
-aircraft-02,"AIRBUS A319","AIRBUS A319(1)",124,24500,ACTIVE_SERVICE,"El A319 es una versión del A320 acortada"
-aircraft-03,"AIRBUS A320-200","AIRBUS A320-200(1)",180,41980,ACTIVE_SERVICE,"El Airbus A320-200 es el miembro fundador de la familia A320"
-aircraft-04,"ANTONOV AN24 26","ANTONOV AN24 26(1)",52,3400,UNDER_MAINTENANCE,"avión original de familia exitosa de transportes"
-aircraft-05,"ANTONOV AN24 26","ANTONOV AN24 26(2)",52,3400,ACTIVE_SERVICE,"avión original de familia exitosa de transportes"
+# base entity
+aircraft-00,"Lorem ipsum dolor sit ame","Registration number: 0000",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# model - standard variations
+aircraft-01,L,"Registration number: 0001",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-02,Lo,"Registration number: 0002",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-03,"Lorem ipsum dolor sit amet, consectetur adipiscin","Registration number: 0003",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-04,"Lorem ipsum dolor sit amet, consectetur adipiscing","Registration number: 0004",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-05,โลเร็ม อิปซัม,"Registration number: 0005",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-06,لوريم إيبسوم,"Registration number: 0006",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-07,洛伦·伊普森,"Registration number: 0007",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-08,<marquee>Hacked</marquee>,"Registration number: 0008",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-09,<script>alert(‘Hacked!’);</script>,"Registration number: 0009",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-10,' or 'A' = 'A ,"Registration number: 0010",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# model - no singular values
+# registration-number - standard variations
+aircraft-11,"Lorem ipsum dolor sit ame",L,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-12,"Lorem ipsum dolor sit ame",Lo,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-13,"Lorem ipsum dolor sit ame","Lorem ipsum dolor sit amet, consectetur adipiscin",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-14,"Lorem ipsum dolor sit ame","Lorem ipsum dolor sit amet, consectetur adipiscing",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-15,"Lorem ipsum dolor sit ame",โลเร็ม อิปซัม,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-16,"Lorem ipsum dolor sit ame",لوريم إيبسوم,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-17,"Lorem ipsum dolor sit ame",洛伦·伊普森,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-18,"Lorem ipsum dolor sit ame",<marquee>Hacked</marquee>,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-19,"Lorem ipsum dolor sit ame",<script>alert(‘Hacked!’);</script>,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-20,"Lorem ipsum dolor sit ame",' or 'A' = 'A ,128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# registration-number - no singular values
+# capacity - standard variations
+aircraft-21,"Lorem ipsum dolor sit ame","Registration number: 0021",1,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-22,"Lorem ipsum dolor sit ame","Registration number: 0022",2,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-23,"Lorem ipsum dolor sit ame","Registration number: 0023",254,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-24,"Lorem ipsum dolor sit ame","Registration number: 0024",255,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# capacity - no singular values
+# cargo-weight - standard variations
+aircraft-25,"Lorem ipsum dolor sit ame","Registration number: 0025",128,2000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-26,"Lorem ipsum dolor sit ame","Registration number: 0026",128,2001,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-27,"Lorem ipsum dolor sit ame","Registration number: 0027",128,49999,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-28,"Lorem ipsum dolor sit ame","Registration number: 0028",128,50000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# cargo-weight - no singular values
+# status - standard variations
+aircraft-29,"Lorem ipsum dolor sit ame","Registration number: 0029",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-30,"Lorem ipsum dolor sit ame","Registration number: 0030",128,26000,UNDER_MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# status - no singular values
+# details - standard variations
+aircraft-31,"Lorem ipsum dolor sit ame","Registration number: 0031",128,26000,ACTIVE_SERVICE,""
+aircraft-32,"Lorem ipsum dolor sit ame","Registration number: 0032",128,26000,ACTIVE_SERVICE,
+aircraft-33,"Lorem ipsum dolor sit ame","Registration number: 0033",128,26000,ACTIVE_SERVICE,L
+aircraft-34,"Lorem ipsum dolor sit ame","Registration number: 0034",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+aircraft-35,"Lorem ipsum dolor sit ame","Registration number: 0035",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*"
+aircraft-36,"Lorem ipsum dolor sit ame","Registration number: 0036",128,26000,ACTIVE_SERVICE,โลเร็ม อิปซัม
+aircraft-37,"Lorem ipsum dolor sit ame","Registration number: 0037",128,26000,ACTIVE_SERVICE,لوريم إيبسوم
+aircraft-38,"Lorem ipsum dolor sit ame","Registration number: 0038",128,26000,ACTIVE_SERVICE,洛伦·伊普森
+aircraft-39,"Lorem ipsum dolor sit ame","Registration number: 0039",128,26000,ACTIVE_SERVICE,<marquee>Hacked</marquee>
+aircraft-40,"Lorem ipsum dolor sit ame","Registration number: 0040",128,26000,ACTIVE_SERVICE,<script>alert(‘Hacked!’);</script>
+aircraft-41,"Lorem ipsum dolor sit ame","Registration number: 0041",128,26000,ACTIVE_SERVICE,' or 'A' = 'A 
+# details - singular values
+aircraft-42,"Lorem ipsum dolor sit ame","Registration number: 0042",128,26000,ACTIVE_SERVICE,null
+aircraft-43,"Lorem ipsum dolor sit ame","Registration number: 0043",128,26000,ACTIVE_SERVICE," "
+aircraft-44,"Lorem ipsum dolor sit ame","Registration number: 0044",128,26000,ACTIVE_SERVICE,"	"
+

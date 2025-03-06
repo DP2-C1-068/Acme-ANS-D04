@@ -39,9 +39,9 @@ public class Task extends AbstractEntity {
 	private int					priority;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 99, integer = 2)
+	@ValidNumber(min = 0, max = 1000, integer = 4)
 	@Automapped
-	private int					estimatedDuration;
+	private int					estimatedDurationHours;
 
 	@Mandatory
 	// HINT: @valid by default
