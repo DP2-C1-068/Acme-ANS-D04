@@ -42,19 +42,18 @@ aircraft-29,"Lorem ipsum dolor sit ame","Registration number: 0029",128,26000,AC
 aircraft-30,"Lorem ipsum dolor sit ame","Registration number: 0030",128,26000,UNDER_MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
 # status - no singular values
 # details - standard variations
-aircraft-31,"Lorem ipsum dolor sit ame","Registration number: 0031",128,26000,ACTIVE_SERVICE,""
-aircraft-32,"Lorem ipsum dolor sit ame","Registration number: 0032",128,26000,ACTIVE_SERVICE,
-aircraft-33,"Lorem ipsum dolor sit ame","Registration number: 0033",128,26000,ACTIVE_SERVICE,L
-aircraft-34,"Lorem ipsum dolor sit ame","Registration number: 0034",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
-aircraft-35,"Lorem ipsum dolor sit ame","Registration number: 0035",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*"
-aircraft-36,"Lorem ipsum dolor sit ame","Registration number: 0036",128,26000,ACTIVE_SERVICE,โลเร็ม อิปซัม
-aircraft-37,"Lorem ipsum dolor sit ame","Registration number: 0037",128,26000,ACTIVE_SERVICE,لوريم إيبسوم
-aircraft-38,"Lorem ipsum dolor sit ame","Registration number: 0038",128,26000,ACTIVE_SERVICE,洛伦·伊普森
-aircraft-39,"Lorem ipsum dolor sit ame","Registration number: 0039",128,26000,ACTIVE_SERVICE,<marquee>Hacked</marquee>
-aircraft-40,"Lorem ipsum dolor sit ame","Registration number: 0040",128,26000,ACTIVE_SERVICE,<script>alert(‘Hacked!’);</script>
-aircraft-41,"Lorem ipsum dolor sit ame","Registration number: 0041",128,26000,ACTIVE_SERVICE,' or 'A' = 'A 
+aircraft-31,"Lorem ipsum dolor sit ame","Registration number: 0032",128,26000,ACTIVE_SERVICE,
+aircraft-32,"Lorem ipsum dolor sit ame","Registration number: 0033",128,26000,ACTIVE_SERVICE,L
+aircraft-33,"Lorem ipsum dolor sit ame","Registration number: 0034",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+aircraft-34,"Lorem ipsum dolor sit ame","Registration number: 0035",128,26000,ACTIVE_SERVICE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*"
+aircraft-35,"Lorem ipsum dolor sit ame","Registration number: 0036",128,26000,ACTIVE_SERVICE,โลเร็ม อิปซัม
+aircraft-36,"Lorem ipsum dolor sit ame","Registration number: 0037",128,26000,ACTIVE_SERVICE,لوريم إيبسوم
+aircraft-37,"Lorem ipsum dolor sit ame","Registration number: 0038",128,26000,ACTIVE_SERVICE,洛伦·伊普森
+aircraft-38,"Lorem ipsum dolor sit ame","Registration number: 0039",128,26000,ACTIVE_SERVICE,<marquee>Hacked</marquee>
+aircraft-39,"Lorem ipsum dolor sit ame","Registration number: 0040",128,26000,ACTIVE_SERVICE,<script>alert(‘Hacked!’);</script>
+aircraft-40,"Lorem ipsum dolor sit ame","Registration number: 0041",128,26000,ACTIVE_SERVICE,' or 'A' = 'A 
 # details - singular values
-aircraft-42,"Lorem ipsum dolor sit ame","Registration number: 0042",128,26000,ACTIVE_SERVICE,null
-aircraft-43,"Lorem ipsum dolor sit ame","Registration number: 0043",128,26000,ACTIVE_SERVICE," "
-aircraft-44,"Lorem ipsum dolor sit ame","Registration number: 0044",128,26000,ACTIVE_SERVICE,"	"
+aircraft-41,"Lorem ipsum dolor sit ame","Registration number: 0042",128,26000,ACTIVE_SERVICE,null
+aircraft-42,"Lorem ipsum dolor sit ame","Registration number: 0043",128,26000,ACTIVE_SERVICE," "
+aircraft-43,"Lorem ipsum dolor sit ame","Registration number: 0044",128,26000,ACTIVE_SERVICE,"		"
 

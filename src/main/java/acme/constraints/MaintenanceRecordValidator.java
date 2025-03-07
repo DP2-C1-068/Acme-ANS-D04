@@ -37,7 +37,7 @@ public class MaintenanceRecordValidator extends AbstractValidator<ValidMaintenan
 			boolean correctInspectionDueDate;
 
 			if (maintenanceRecord.isDraftMode() && maintenanceRecord.getMoment() != null) {
-				minimumInspectionDueDate = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.MINUTES);
+				minimumInspectionDueDate = MomentHelper.deltaFromMoment(maintenanceRecord.getMoment(), 1, ChronoUnit.MINUTES);
 				correctInspectionDueDate = MomentHelper.isAfterOrEqual(maintenanceRecord.getInspectionDueDate(), minimumInspectionDueDate);
 
 				super.state(context, correctInspectionDueDate, "inspectionDueDate", "acme.validation.maintenance-record.inspection-due-date.message");

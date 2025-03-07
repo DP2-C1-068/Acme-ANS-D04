@@ -3,7 +3,6 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
@@ -15,7 +14,6 @@ import acme.constraints.ValidOptionalLongText;
 import acme.constraints.ValidPhoneNumber;
 import acme.constraints.ValidShortText;
 import acme.constraints.ValidTechnician;
-import acme.entities.maintenance.AnnualHealthTest;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,9 +43,9 @@ public class Technician extends AbstractRole {
 	private String				specialisation;
 
 	@Mandatory
-	@Valid
+	// HINT @Valid by default
 	@Automapped
-	private AnnualHealthTest	annualHealthTest;
+	private boolean				annualHealthTest;
 
 	@Mandatory
 	@ValidNumber(min = 0, max = 120, integer = 2)
