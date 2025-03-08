@@ -27,7 +27,7 @@ public class Involves extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne
 	private Task				task;
 
 }

@@ -1,7 +1,9 @@
 key,key:maintenance-record,key:task
+involves-00.000,maintenance-record-00,task-000
+involves-00.001,maintenance-record-00,task-001
+involves-00-002,maintenance-record-00,task-002
+involves-01-000,maintenance-record-01,task-000
 involves-01-001,maintenance-record-01,task-001
-involves-01-002,maintenance-record-01,task-002
-involves-01-003,maintenance-record-01,task-003
-involves-02-001,maintenance-record-02,task-001
-involves-02-004,maintenance-record-02,task-004
-involves-0-005,maintenance-record-04,task-005
+involves-02-000,maintenance-record-02,task-000
+# Singular relation: MR-28 is published therefore needs a published task at least
+involves-28-023,maintenance-record-28,task-023
