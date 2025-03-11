@@ -16,8 +16,8 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
+import acme.constraints.ValidLongText;
 import acme.constraints.ValidMaintenanceRecord;
-import acme.constraints.ValidOptionalLongText;
 import acme.entities.aircraft.Aircraft;
 import acme.realms.Technician;
 import lombok.Getter;
@@ -54,7 +54,7 @@ public class MaintenanceRecord extends AbstractEntity {
 	private Money				estimatedCost;
 
 	@Optional
-	@ValidOptionalLongText
+	@ValidLongText
 	@Automapped
 	private String				notes;
 

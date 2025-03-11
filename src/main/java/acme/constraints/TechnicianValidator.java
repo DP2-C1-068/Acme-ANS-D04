@@ -33,17 +33,13 @@ public class TechnicianValidator extends AbstractValidator<ValidTechnician, Tech
 
 		boolean result;
 
-		if (technician == null)
-			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-		else {
-			boolean uniqueTechnician;
-			Technician existingTechnician;
+		boolean uniqueTechnician;
+		Technician existingTechnician;
 
-			existingTechnician = this.repository.findTechnicianByLicenseNumber(technician.getLicenseNumber());
-			uniqueTechnician = existingTechnician == null || existingTechnician.equals(technician);
+		existingTechnician = this.repository.findTechnicianByLicenseNumber(technician.getLicenseNumber());
+		uniqueTechnician = existingTechnician == null || existingTechnician.equals(technician);
 
-			super.state(context, uniqueTechnician, "licenseNumber", "acme.validation.technician.duplicated-license-number.message");
-		}
+		super.state(context, uniqueTechnician, "licenseNumber", "acme.validation.technician.duplicated-license-number.message");
 
 		result = !super.hasErrors(context);
 

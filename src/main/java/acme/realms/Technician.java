@@ -10,7 +10,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.constraints.ValidLicenseNumber;
-import acme.constraints.ValidOptionalLongText;
+import acme.constraints.ValidLongText;
 import acme.constraints.ValidPhoneNumber;
 import acme.constraints.ValidShortText;
 import acme.constraints.ValidTechnician;
@@ -48,12 +48,12 @@ public class Technician extends AbstractRole {
 	private boolean				annualHealthTest;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 120, integer = 2)
+	@ValidNumber(min = 0, max = 120, integer = 3)
 	@Automapped
 	private int					yearsOfExperience;
 
 	@Optional
-	@ValidOptionalLongText
+	@ValidLongText
 	@Automapped
 	private String				certifications;
 
