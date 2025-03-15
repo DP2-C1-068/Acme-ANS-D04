@@ -33,14 +33,27 @@ public class TechnicianValidator extends AbstractValidator<ValidTechnician, Tech
 
 		boolean result;
 
-		boolean uniqueTechnician;
-		Technician existingTechnician;
+		{
+			boolean uniqueTechnician;
+			Technician existingTechnician;
 
-		existingTechnician = this.repository.findTechnicianByLicenseNumber(technician.getLicenseNumber());
-		uniqueTechnician = existingTechnician == null || existingTechnician.equals(technician);
+			existingTechnician = this.repository.findTechnicianByLicenseNumber(technician.getLicenseNumber());
+			uniqueTechnician = existingTechnician == null || existingTechnician.equals(technician);
 
-		super.state(context, uniqueTechnician, "licenseNumber", "acme.validation.technician.duplicated-license-number.message");
+			super.state(context, uniqueTechnician, "licenseNumber", "acme.validation.technician.duplicated-license-number.message");
 
+		}
+		{
+			boolean correctLicenseNubmer;
+
+			char firstLetterName = technician.getIdentity().getName().charAt(0);
+			char firstLetterSurname = technician.getIdentity().getSurname().charAt(0);
+
+			correctLicenseNubmer = technician.getLicenseNumber().charAt(0) == firstLetterName && technician.getLicenseNumber().charAt(1) == firstLetterSurname;
+
+			super.state(context, correctLicenseNubmer, "licenseNumber", "acme.validation.technician.wrong-initials-license-number.message");
+
+		}
 		result = !super.hasErrors(context);
 
 		return result;

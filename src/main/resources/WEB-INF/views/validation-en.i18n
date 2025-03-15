@@ -17,6 +17,7 @@ acme.validation.aircraft.duplicated-registration-number.message = Duplicated reg
 
 acme.validation.airline.iata-code.message = Must follow the pattern: 3 uppercase letters (e.g., ABC or DFX)
 
+acme.validation.technician.wrong-initials-license-number.message = The first letter must match the initial of the first name, and the second must match the initial of the surname 
 acme.validation.technician.licenseNumber.message  	= Must follow the pattern: 2-3 uppercase letters followed by 6 digits (e.g., AB123456 or ABC987654)
 acme.validation.technician.phone-number.message = must have between 6 and 15 digits, optionally starting with '+'. (e.g: +123456789 or 987654321)
 
