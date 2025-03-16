@@ -27,16 +27,22 @@
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.list-aircrafts" action="/administrator/aircraft/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-initial" action="/administrator/system/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
 			<acme:menu-suboption code="master.menu.technician.list-my-maintenance-records" action="/technician/maintenance-record/list" />			
-			<acme:menu-suboption code="master.menu.technician.list-my-tasks" action="/technician/task/list" />
-			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.technician.list-my-tasks" action="/technician/task/list-mine" />
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.technician.list-maintenance-record-catalogue" action="/technician/maintenance-record/list-catalogue" />
+			<acme:menu-suboption code="master.menu.technician.list-task-catalogue" action="/technician/task/list-catalogue" />
+			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">
