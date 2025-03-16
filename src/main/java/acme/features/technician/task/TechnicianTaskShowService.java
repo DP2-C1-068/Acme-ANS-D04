@@ -1,15 +1,12 @@
 
 package acme.features.technician.task;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.Task;
 import acme.entities.maintenance.TaskType;
 import acme.realms.Technician;
@@ -27,18 +24,18 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 
 	@Override
 	public void authorise() {
+
 		boolean status;
-		int taskId;
+		int masterId;
 		Task task;
-		Collection<MaintenanceRecord> maintenanceRecords;
+		Technician technician;
 
-		taskId = super.getRequest().getData("id", int.class);
-		task = this.repository.findTaskById(taskId);
-		maintenanceRecords = this.repository.findMaintenanceRecordsByTaskId(taskId);
+		masterId = super.getRequest().getData("id", int.class);
+		task = this.repository.findTaskById(masterId);
+		technician = task == null ? null : task.getTechnician();
+		status = super.getRequest().getPrincipal().hasRealm(technician) || task != null && !task.isDraftMode();
 
-		//status = maintenanceRecord != null && (!maintenanceRecord.isDraftMode() || super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()));
-
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
