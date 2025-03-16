@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<acme:form> 
+<acme:form readonly="${status == 'UNDER_MAINTENANCE' ? true : false}"> 
 	<acme:input-textbox code="administrator.aircraft.form.label.registrationNumber" path="registrationNumber"/>
 	<acme:input-textbox code="administrator.aircraft.form.label.model" path="model"/>
 	<acme:input-select code="administrator.aircraft.form.label.status" path="status" choices="${status}"/>
@@ -24,7 +24,7 @@
 	<acme:input-textarea code="administrator.aircraft.form.label.details" path="details"/>
 	
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && status == 'UNDER_MAINTENANCE'}">
+		<jstl:when test="${_command == 'show'}">
 			<acme:button code="administrator.aircraft.form.button.maintenance-records" action="/administrator/maintenance-record/list?masterId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && status == 'UNDER_MAINTENANCE'}">

@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.aircraft.form.title = Aircraft record form 
+administrator.aircraft.form.title = Aircraft form 
 administrator.aircraft.list.title = Listing of aircrafts
 
 administrator.aircraft.form.label.model = Model:

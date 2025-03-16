@@ -18,9 +18,13 @@
 <acme:form> 
 	<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment"/>
 	<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${status}"/>
-	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="insepctionDueDate"/>
+	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="inspectionDueDate"/>
 	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="technician.maintenance-record.form.label.notes" path="notes"/>
+	<acme:input-textarea code="technician.maintenance-record.form.label.aircraft" path="aircraft"/>
+	<acme:input-textarea code="technician.maintenance-record.form.label.technician" path="technician"/>
+	
+	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="technician.maintenance-record.form.button.tasks" action="/technician/task/list?masterId=${id}"/>			
