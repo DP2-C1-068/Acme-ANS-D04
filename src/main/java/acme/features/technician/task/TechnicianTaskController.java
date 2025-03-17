@@ -16,13 +16,10 @@ public class TechnicianTaskController extends AbstractGuiController<Technician, 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private TechnicianTaskListService		listService;
+	private TechnicianTaskListService	listService;
 
 	@Autowired
-	private TechnicianTaskListMineService	listMineService;
-
-	@Autowired
-	private TechnicianTaskShowService		showService;
+	private TechnicianTaskShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 

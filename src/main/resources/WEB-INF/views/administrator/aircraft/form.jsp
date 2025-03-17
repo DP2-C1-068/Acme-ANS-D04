@@ -25,7 +25,7 @@
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="administrator.aircraft.form.button.maintenance-records" action="/administrator/maintenance-record/list?masterId=${id}"/>			
+			<acme:button code="administrator.aircraft.form.button.maintenance-records" action="/technician/maintenance-record/list?masterId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && status == 'UNDER_MAINTENANCE'}">
 			<acme:button code="administrator.aircraft.form.button.maintenance-records" action="/administrator/task/list?masterId=${id}"/>

@@ -8,8 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-technician.task.form.title = task form
+technician.task.form.title = Task form
 technician.task.list.title = Listing of tasks
+technician.task.my-list.title = Listing of my tasks
+
 
 technician.task.form.label.type = Type:
 technician.task.form.label.description = Description:
