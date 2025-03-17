@@ -57,7 +57,6 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 
 		masterId = super.getRequest().hasData("masterId") ? super.getRequest().getData("masterId", int.class) : null;
 		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
-		System.out.println(mine);
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (masterId != null)
