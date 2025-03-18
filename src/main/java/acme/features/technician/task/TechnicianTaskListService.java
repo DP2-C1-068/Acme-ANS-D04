@@ -30,11 +30,9 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 		Integer maintenanceRecordId;
 		Boolean mine;
 		MaintenanceRecord maintenanceRecord = null;
-		int technicianId;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
 		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) == true ? true : false : null;
-		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (maintenanceRecordId != null) {
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
