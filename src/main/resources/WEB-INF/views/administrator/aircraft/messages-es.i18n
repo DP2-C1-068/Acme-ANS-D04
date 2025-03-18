@@ -17,6 +17,8 @@ administrator.aircraft.form.label.status = Estado:
 administrator.aircraft.form.label.capacity = Capacidad:
 administrator.aircraft.form.label.cargoWeight = Peso de carga (kg):
 administrator.aircraft.form.label.details = Detalles:
+administrator.aircraft.form.label.confirmation = Confirme que quiere actualizar esta aeronave.
+
 
 administrator.aircraft.form.placeholder.score = 0.00 - 100.00
 		

@@ -21,8 +21,8 @@
 	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="inspectionDueDate"/>
 	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="technician.maintenance-record.form.label.notes" path="notes"/>
-	<acme:input-textarea code="technician.maintenance-record.form.label.aircraft" path="aircraft"/>
-	<acme:input-textarea code="technician.maintenance-record.form.label.technician" path="technician"/>
+	<acme:input-textarea code="technician.maintenance-record.form.label.aircraft" path="aircraft" readonly="true"/>
+	<acme:input-textarea code="technician.maintenance-record.form.label.technician" path="technician" readonly="true"/>
 	
 	
 	<jstl:choose>	 

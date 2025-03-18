@@ -33,16 +33,17 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 		int technicianId;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
-		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
+		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) == true ? true : false : null;
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (maintenanceRecordId != null) {
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-			status = maintenanceRecord != null && (!maintenanceRecord.isDraftMode() || super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()));
-		} /*
-			 * else if (maintenanceRecord == null && mine = false)
-			 * status = false;
-			 */
+			status = maintenanceRecord != null && //
+				(!maintenanceRecord.isDraftMode() || //
+					super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()));
+
+		} else if (maintenanceRecord == null && mine == null)
+			status = false;
 		else
 			status = true;
 
@@ -85,21 +86,21 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 
 	@Override
 	public void unbind(final Collection<Task> tasks) {
-		Integer masterId;
+		Integer maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
 		boolean showCreate;
 		boolean mine;
 
-		masterId = super.getRequest().hasData("masterId") ? super.getRequest().getData("masterId", int.class) : null;
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
 		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
 
-		if (masterId != null) {
-			maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
+		if (maintenanceRecordId != null) {
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 			showCreate = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
 		} else
 			showCreate = false;
 
-		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 		super.getResponse().addGlobal("mine", mine);
 		super.getResponse().addGlobal("showCreate", showCreate);
 	}
