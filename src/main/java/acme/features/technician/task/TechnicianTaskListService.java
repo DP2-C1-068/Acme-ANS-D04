@@ -27,20 +27,23 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 	public void authorise() {
 
 		boolean status;
-		Integer masterId;
+		Integer maintenanceRecordId;
 		Boolean mine;
-		MaintenanceRecord maintenanceRecord;
+		MaintenanceRecord maintenanceRecord = null;
 		int technicianId;
 
-		// Obtener parámetros de la petición de forma segura
-		masterId = super.getRequest().hasData("masterId") ? super.getRequest().getData("masterId", int.class) : null;
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
 		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		if (masterId != null) {
-			maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
+		if (maintenanceRecordId != null) {
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 			status = maintenanceRecord != null && (!maintenanceRecord.isDraftMode() || super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()));
-		} else
+		} /*
+			 * else if (maintenanceRecord == null && mine = false)
+			 * status = false;
+			 */
+		else
 			status = true;
 
 		super.getResponse().setAuthorised(status);
@@ -51,16 +54,16 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 	public void load() {
 
 		Collection<Task> tasks;
-		Integer masterId;
+		Integer maintenanceRecordId;
 		Boolean mine;
 		int technicianId;
 
-		masterId = super.getRequest().hasData("masterId") ? super.getRequest().getData("masterId", int.class) : null;
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
 		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		if (masterId != null)
-			tasks = this.repository.findTasksByMasterId(masterId);
+		if (maintenanceRecordId != null)
+			tasks = this.repository.findTasksByMasterId(maintenanceRecordId);
 		else if (mine)
 			tasks = this.repository.findTasksByTechnicianId(technicianId);
 		else
