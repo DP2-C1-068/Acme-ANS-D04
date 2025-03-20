@@ -58,7 +58,7 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 		int technicianId;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
-		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
+		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) == true ? true : false : null;
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (maintenanceRecordId != null)
@@ -86,20 +86,24 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 	public void unbind(final Collection<Task> tasks) {
 		Integer maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
-		boolean showCreate;
-		boolean mine;
+		boolean showCreate = false;
+		Boolean mine;
 
-		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
-		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) : false;
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
+			super.getRequest().getData("maintenanceRecordId", int.class) : null;
+		mine = super.getRequest().hasData("mine") ?//
+			super.getRequest().getData("mine", boolean.class) : false;
 
 		if (maintenanceRecordId != null) {
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-			showCreate = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
-		} else
-			showCreate = false;
+			showCreate = maintenanceRecord != null && maintenanceRecord.isDraftMode() //
+				&& super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
+		} else if (mine)
+			showCreate = true;
 
 		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 		super.getResponse().addGlobal("mine", mine);
+		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 

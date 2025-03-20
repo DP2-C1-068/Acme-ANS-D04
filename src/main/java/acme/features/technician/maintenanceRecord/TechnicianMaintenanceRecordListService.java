@@ -47,6 +47,14 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
+		Boolean mine;
+		boolean showCreate = false;
+
+		mine = super.getRequest().hasData("mine") ?//
+			super.getRequest().getData("mine", boolean.class) : false;
+
+		if (mine)
+			showCreate = true;
 
 		dataset = super.unbindObject(maintenanceRecord, "moment", "status", "inspectionDueDate");
 		super.addPayload(dataset, maintenanceRecord, //
@@ -55,5 +63,7 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 			"technician.licenseNumber", "technician.phoneNumber");
 
 		super.getResponse().addData(dataset);
+		super.getResponse().addGlobal("mine", mine);
+		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 }
