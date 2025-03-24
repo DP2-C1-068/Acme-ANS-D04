@@ -1,106 +1,108 @@
-/*
- * TechnicianMaintenanceRecordPublishService.java
- *
- * Copyright (C) 2012-2025 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- * 
- * 
- * package acme.features.technician.maintenanceRecord;
- * 
- * import java.util.Collection;
- * 
- * import org.springframework.beans.factory.annotation.Autowired;
- * 
- * import acme.client.components.models.Dataset;
- * import acme.client.components.views.SelectChoices;
- * import acme.client.services.AbstractGuiService;
- * import acme.client.services.GuiService;
- * import acme.entities.companies.Company;
- * import acme.entities.jobs.Job;
- * import acme.realms.Employer;
- * 
- * @GuiService
- * public class TechnicianMaintenanceRecordPublishService extends AbstractGuiService<Employer, Job> {
- * 
- * // Internal state ---------------------------------------------------------
- * 
- * @Autowired
- * private EmployerJobRepository repository;
- * 
- * // AbstractGuiService interface -------------------------------------------
- * 
- * 
- * @Override
- * public void authorise() {
- * boolean status;
- * int jobId;
- * Job job;
- * Employer employer;
- * 
- * jobId = super.getRequest().getData("id", int.class);
- * job = this.repository.findJobById(jobId);
- * employer = job == null ? null : job.getEmployer();
- * status = job != null && job.isDraftMode() && super.getRequest().getPrincipal().hasRealm(employer);
- * 
- * super.getResponse().setAuthorised(status);
- * }
- * 
- * @Override
- * public void load() {
- * Job job;
- * int id;
- * 
- * id = super.getRequest().getData("id", int.class);
- * job = this.repository.findJobById(id);
- * 
- * super.getBuffer().addData(job);
- * }
- * 
- * @Override
- * public void bind(final Job job) {
- * int contractorId;
- * Company contractor;
- * 
- * contractorId = super.getRequest().getData("contractor", int.class);
- * contractor = this.repository.findContractorById(contractorId);
- * 
- * super.bindObject(job, "ticker", "title", "deadline", "salary", "score", "moreInfo", "description");
- * job.setContractor(contractor);
- * }
- * 
- * @Override
- * public void validate(final Job job) {
- * ;
- * }
- * 
- * @Override
- * public void perform(final Job job) {
- * job.setDraftMode(false);
- * this.repository.save(job);
- * }
- * 
- * @Override
- * public void unbind(final Job job) {
- * int employerId;
- * Collection<Company> contractors;
- * SelectChoices choices;
- * Dataset dataset;
- * 
- * employerId = super.getRequest().getPrincipal().getActiveRealm().getId();
- * contractors = this.repository.findContractorsByEmployerId(employerId);
- * choices = SelectChoices.from(contractors, "name", job.getContractor());
- * 
- * dataset = super.unbindObject(job, "ticker", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
- * dataset.put("contractor", choices.getSelected().getKey());
- * dataset.put("contractors", choices);
- * 
- * super.getResponse().addData(dataset);
- * }
- * 
- * }
- */
+
+package acme.features.technician.maintenanceRecord;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
+import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
+import acme.entities.aircraft.Aircraft;
+import acme.entities.maintenance.MaintenanceRecord;
+import acme.entities.maintenance.MaintenanceStatus;
+import acme.entities.maintenance.Task;
+import acme.realms.Technician;
+
+@GuiService
+public class TechnicianMaintenanceRecordPublishService extends AbstractGuiService<Technician, MaintenanceRecord> {
+
+	// Internal state ---------------------------------------------------------
+
+	@Autowired
+	private TechnicianMaintenanceRecordRepository repository;
+
+	// AbstractGuiService interface -------------------------------------------
+
+
+	@Override
+	public void authorise() {
+		boolean status;
+		int maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord;
+		Technician technician;
+
+		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+
+		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
+	public void load() {
+		MaintenanceRecord maintenanceRecord;
+		int maintenanceRecordId;
+
+		maintenanceRecordId = super.getRequest().getData("id", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+
+		super.getBuffer().addData(maintenanceRecord);
+	}
+
+	@Override
+	public void bind(final MaintenanceRecord maintenanceRecord) {
+
+		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+
+		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
+
+		maintenanceRecord.setTechnician(technician);
+		maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
+	}
+
+	@Override
+	public void validate(final MaintenanceRecord maintenanceRecord) {
+
+		Collection<Task> tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecord.getId());
+
+		super.state(!tasks.isEmpty(), "*", "technician.maintenance-record.form.error.zero-tasks");
+
+		boolean hasUnpublishedTask = tasks.stream().anyMatch(Task::isDraftMode);
+		super.state(!hasUnpublishedTask, "*", "technician.maintenance-record.form.error.not-all-tasks-published");
+	}
+
+	@Override
+	public void perform(final MaintenanceRecord maintenanceRecord) {
+
+		maintenanceRecord.setDraftMode(false);
+		this.repository.save(maintenanceRecord);
+
+		super.getResponse().setView("/technician/maintenance-record/list?mine=true");
+
+	}
+
+	@Override
+	public void unbind(final MaintenanceRecord maintenanceRecord) {
+		Collection<Aircraft> aircrafts;
+		SelectChoices choicesAircrafts;
+		SelectChoices choicesStatus;
+		Dataset dataset;
+
+		aircrafts = this.repository.findAircrafts();
+
+		choicesStatus = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
+		choicesAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
+
+		dataset = super.unbindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
+		dataset.put("technician", maintenanceRecord.getTechnician().getIdentity().getFullName());
+		dataset.put("aircraft", choicesAircrafts.getSelected().getKey());
+		dataset.put("aircrafts", choicesAircrafts);
+		dataset.put("status", choicesStatus.getSelected().getKey());
+		dataset.put("statuses", choicesStatus);
+
+		super.getResponse().addData(dataset);
+	}
+}
