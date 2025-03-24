@@ -30,7 +30,6 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 		boolean status;
 		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
-		Involves involves;
 
 		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);

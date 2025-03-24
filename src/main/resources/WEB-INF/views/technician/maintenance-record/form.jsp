@@ -17,11 +17,11 @@
 
 <acme:form> 
 	<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment"/>
-	<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${status}"/>
+	<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${statuses}"/>
 	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="inspectionDueDate"/>
 	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="technician.maintenance-record.form.label.notes" path="notes"/>
-	<acme:input-textarea code="technician.maintenance-record.form.label.aircraft" path="aircraft" readonly="true"/>
+	<acme:input-select code="technician.maintenance-record.form.label.aircraft" path="aircraft" choices="${aircrafts}" readonly="${acme:anyOf(_command, 'show')}"/>
 	<acme:input-textarea code="technician.maintenance-record.form.label.technician" path="technician" readonly="true"/>
 	
 	
@@ -32,7 +32,7 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="technician.maintenance-record.form.button.tasks" action="/technician/task/list?maintenanceRecordId=${id}"/>
 			<acme:submit code="technician.maintenance-record.form.button.update" action="/technician/maintenance-record/update"/>
-			<acme:submit code="technician.maintenance-record.form.button.delete" action="/technician/maintenance-record/delete"/>
+			<acme:submit code="technician.maintenance-record.form.button.delete" action="/technician/maintenance-record/delete?maintenanceRecordId=${id}"/>
 			<acme:submit code="technician.maintenance-record.form.button.publish" action="/technician/maintenance-record/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
