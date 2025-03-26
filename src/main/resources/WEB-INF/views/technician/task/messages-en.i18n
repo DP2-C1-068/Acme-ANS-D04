@@ -21,8 +21,7 @@ technician.task.form.label.estimatedDurationHours = Estimated duration (hours):
 technician.task.form.button.create = Create		
 technician.task.form.button.update = Update
 technician.task.form.button.delete = Delete
-
-
+technician.task.form.button.publish = Publish
 
 technician.task.form.placeholder.example = 0.00 - 100.00
 
