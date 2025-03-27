@@ -27,6 +27,7 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 
 	@Override
 	public void authorise() {
+		System.out.println("======= ENTERING SHOW SERVICE ===========");
 		System.out.println(super.getRequest().getData());
 		boolean status;
 		int masterId;
