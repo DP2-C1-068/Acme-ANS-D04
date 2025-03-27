@@ -85,8 +85,6 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 		this.repository.deleteAll(involves);
 		this.repository.delete(task);
 
-		super.getResponse().setView("/technician/task/list?mine=true");
-
 	}
 	@Override
 	public void unbind(final Task task) {

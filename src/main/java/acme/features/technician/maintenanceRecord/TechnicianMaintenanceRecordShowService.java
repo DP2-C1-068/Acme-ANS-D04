@@ -27,6 +27,7 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 
 	@Override
 	public void authorise() {
+		System.out.println(super.getRequest().getData());
 		boolean status;
 		int masterId;
 		MaintenanceRecord maintenanceRecord;

@@ -12,7 +12,7 @@ import acme.entities.aircraft.Aircraft;
 import acme.entities.aircraft.AircraftStatus;
 
 @GuiService
-public class AdministratorAircraftShowService extends AbstractGuiService<Administrator, Aircraft> {
+public class AdministratorAircraftCreateService extends AbstractGuiService<Administrator, Aircraft> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -24,26 +24,36 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Aircraft aircraft;
-
-		masterId = super.getRequest().getData("id", int.class);
-		aircraft = this.repository.findAircraftById(masterId);
-		status = super.getRequest().getPrincipal().hasRealmOfType(Administrator.class) && aircraft != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Aircraft aircraft;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		aircraft = this.repository.findAircraftById(id);
+		aircraft = new Aircraft();
 
 		super.getBuffer().addData(aircraft);
+	}
+
+	@Override
+	public void bind(final Aircraft aircraft) {
+
+		super.bindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+
+	}
+
+	@Override
+	public void validate(final Aircraft aircraft) {
+		boolean confirmationCreate;
+
+		confirmationCreate = super.getRequest().getData("confirmationCreate", boolean.class);
+		super.state(confirmationCreate, "confirmationCreate", "acme.validation.confirmation.message");
+	}
+
+	@Override
+	public void perform(final Aircraft aircraft) {
+		this.repository.save(aircraft);
 	}
 
 	@Override
@@ -53,8 +63,10 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 		choices = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
 
-		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "details");
+		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		dataset.put("status", choices.getSelected().getKey());
 		dataset.put("statuses", choices);
+
 		super.getResponse().addData(dataset);
 	}
 

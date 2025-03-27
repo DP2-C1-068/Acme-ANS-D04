@@ -14,7 +14,6 @@ acme.validation.optional-text.message           = Must have from 0 to 255 charac
 
 
 acme.validation.aircraft.duplicated-registration-number.message = Duplicated registration number
-
 acme.validation.airline.iata-code.message = Must follow the pattern: 3 uppercase letters (e.g., ABC or DFX)
 
 acme.validation.technician.wrong-initials-license-number.message = The first letter must match the initial of the first name, and the second must match the initial of the surname 

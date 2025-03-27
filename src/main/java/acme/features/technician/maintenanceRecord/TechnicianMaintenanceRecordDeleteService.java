@@ -76,8 +76,6 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 		this.repository.deleteAll(involves);
 		this.repository.delete(maintenanceRecord);
 
-		super.getResponse().setView("/technician/maintenance-record/list?mine=true");
-
 	}
 
 	@Override
