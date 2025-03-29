@@ -28,11 +28,9 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 
 		boolean status;
 		Integer maintenanceRecordId;
-		Boolean mine;
 		MaintenanceRecord maintenanceRecord = null;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
-		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) == true ? true : false : null;
 
 		if (maintenanceRecordId != null) {
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
@@ -40,9 +38,7 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 				(!maintenanceRecord.isDraftMode() || //
 					super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()));
 
-		} else if (maintenanceRecord == null && mine == null)
-			status = false;
-		else
+		} else
 			status = true;
 
 		super.getResponse().setAuthorised(status);
@@ -54,11 +50,11 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 
 		Collection<Task> tasks;
 		Integer maintenanceRecordId;
-		Boolean mine;
+		boolean mine;
 		int technicianId;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
-		mine = super.getRequest().hasData("mine") ? super.getRequest().getData("mine", boolean.class) == true ? true : false : null;
+		mine = super.getRequest().hasData("mine");
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (maintenanceRecordId != null)
@@ -87,12 +83,11 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 		Integer maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
 		boolean showCreate = false;
-		Boolean mine;
+		boolean mine;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
 			super.getRequest().getData("maintenanceRecordId", int.class) : null;
-		mine = super.getRequest().hasData("mine") ?//
-			super.getRequest().getData("mine", boolean.class) : false;
+		mine = super.getRequest().hasData("mine");
 
 		if (maintenanceRecordId != null) {
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
@@ -103,7 +98,6 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 
 		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 		super.getResponse().addGlobal("mine", mine);
-		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 

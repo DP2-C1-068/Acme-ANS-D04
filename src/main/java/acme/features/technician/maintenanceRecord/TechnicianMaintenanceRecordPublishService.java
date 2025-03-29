@@ -33,7 +33,7 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
 
-		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
+		maintenanceRecordId = super.getRequest().getData("id", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);

@@ -30,6 +30,7 @@ technician.maintenance-record.form.button.create = Create
 technician.maintenance-record.list.label.moment = Maintenance moment
 technician.maintenance-record.list.label.status = Status
 technician.maintenance-record.list.label.inspectionDueDate = Inspection due date
+technician.maintenance-record.list.label.draftMode = Draft mode
 
 technician.maintenance-record.list.button.create = Create
 

@@ -67,7 +67,8 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 	@Override
 	public void perform(final Involves involves) {
 		Task task = super.getRequest().getData("task", Task.class);
-		MaintenanceRecord maintenanceRecord = super.getRequest().getData("maintenanceRecord", MaintenanceRecord.class);
+		int maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
+		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
 		this.repository.delete(this.repository.findInvolvesByMaintenanceRecordAndTask(maintenanceRecord, task));
 
@@ -91,6 +92,7 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 		dataset.put("maintenanceRecordId", involves.getMaintenanceRecord().getId());
 		dataset.put("task", choices.getSelected().getKey());
 		dataset.put("tasks", choices);
+		dataset.put("aircraftRegistrationNumber", involves.getMaintenanceRecord().getAircraft().getRegistrationNumber());
 
 		super.getResponse().addData(dataset);
 	}

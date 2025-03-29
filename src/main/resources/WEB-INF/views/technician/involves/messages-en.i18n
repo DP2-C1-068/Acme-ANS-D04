@@ -13,6 +13,7 @@ technician.involves.list.title = Linked tasks list
 
 technician.involves.form.label.maintenanceRecord = Maintenance record:
 technician.involves.form.label.task = Task:
+technician.involves.form.label.aircraft = Aircraft associated:
 
 technician.involves.form.button.create = Create		
 technician.involves.form.button.update = Update

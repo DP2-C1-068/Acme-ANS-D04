@@ -27,16 +27,13 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 
 	@Override
 	public void authorise() {
-		System.out.println("======= ENTERING SHOW SERVICE ===========");
-		System.out.println(super.getRequest().getData());
+
 		boolean status;
 		int masterId;
 		MaintenanceRecord maintenanceRecord;
-		Technician technician;
 
 		masterId = super.getRequest().getData("id", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
-		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 		status = maintenanceRecord != null && (super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()) || !maintenanceRecord.isDraftMode());
 
 		super.getResponse().setAuthorised(status);

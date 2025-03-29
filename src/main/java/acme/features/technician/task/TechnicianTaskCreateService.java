@@ -18,6 +18,8 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.maintenance.Involves;
+import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.Task;
 import acme.entities.maintenance.TaskType;
 import acme.realms.Technician;
@@ -69,7 +71,24 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void perform(final Task task) {
+		Integer maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord;
+		Involves involves = new Involves();
+
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
+			super.getRequest().getData("maintenanceRecordId", Integer.class) : null;
+
 		this.repository.save(task);
+
+		if (maintenanceRecordId != null) {
+
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+
+			involves.setTask(task);
+			involves.setMaintenanceRecord(maintenanceRecord);
+
+			this.repository.save(involves);
+		}
 	}
 
 	@Override
@@ -83,6 +102,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 		dataset.put("technician", task.getTechnician().getIdentity().getFullName());
 		dataset.put("type", choices.getSelected().getKey());
 		dataset.put("types", choices);
+		dataset.put("maintenanceRecordId", super.getRequest().getData("maintenanceRecordId", Integer.class));
 
 		super.getResponse().addData(dataset);
 	}

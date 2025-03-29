@@ -1,0 +1,101 @@
+URLS
+
+===================MAINTENANCE RECORDS===================
+LIST MINE 
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/list?mine=true
+
+LIST ALL PUBLISHED
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/list?mine=false
+
+SHOW
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/show?id=163
+
+CREATE
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/create
+
+UPDATE
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/update
+
+DELETE
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/delete
+
+PUBLISH
+
+http://localhost:8080/Acme-ANS-D03/technician/maintenance-record/publish
+
+===================TASK===================
+
+LIST MINE
+
+http://localhost:8080/Acme-ANS-D03/technician/task/list?mine=true
+
+LIST ALL PUBLISHED
+
+http://localhost:8080/Acme-ANS-D03/technician/task/list
+
+LIST FOR MAINTENANCE RECORD
+
+http://localhost:8080/Acme-ANS-D03/technician/task/list?maintenanceRecordId=168
+
+SHOW
+
+http://localhost:8080/Acme-ANS-D03/technician/task/show?id=194
+
+CREATE 
+
+http://localhost:8080/Acme-ANS-D03/technician/task/create
+
+UPDATE
+
+http://localhost:8080/Acme-ANS-D03/technician/task/update
+
+DELETE
+
+http://localhost:8080/Acme-ANS-D03/technician/task/delete
+
+PUBLISH
+
+http://localhost:8080/Acme-ANS-D03/technician/task/publish
+
+
+===================INVOLVES===================
+
+SHOW MAINTENANCE RECORD AND TASKS TO LINK
+
+http://localhost:8080/Acme-ANS-D03/technician/involves/create?maintenanceRecordId=168
+
+SHOW MAINTENANCE RECORD AND TASKS TO UNLINK
+
+http://localhost:8080/Acme-ANS-D03/technician/involves/delete?maintenanceRecordId=168
+
+CREATE INVOLVES
+
+http://localhost:8080/Acme-ANS-D03/technician/involves/create
+
+DELETE INVOLVES
+
+http://localhost:8080/Acme-ANS-D03/technician/involves/delete
+
+===================AIRCRAFT===================
+
+LIST
+
+http://localhost:8080/Acme-ANS-D03/administrator/aircraft/list
+
+SHOW
+
+http://localhost:8080/Acme-ANS-D03/administrator/aircraft/show?id=83
+
+CREATE
+
+http://localhost:8080/Acme-ANS-D03/administrator/aircraft/create
+
+UPDATE
+
+http://localhost:8080/Acme-ANS-D03/administrator/aircraft/update
