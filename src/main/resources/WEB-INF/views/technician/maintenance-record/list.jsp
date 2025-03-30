@@ -19,8 +19,6 @@
 	<acme:list-column code="technician.maintenance-record.list.label.moment" path="moment" width="25%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.status" path="status" width="25%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.inspectionDueDate" path="inspectionDueDate" width="26%"/>
-	<acme:list-column code="technician.maintenance-record.list.label.draftMode" path="draftMode" width="25%"/>
-	
 	<acme:list-payload path="payload"/>
 </acme:list>
 

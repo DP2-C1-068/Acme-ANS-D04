@@ -51,6 +51,10 @@ CREATE
 
 http://localhost:8080/Acme-ANS-D03/technician/task/create
 
+CREATE FOR MAINTENNACE RECORD
+
+http://localhost:8080/Acme-ANS-D03/technician/task/create?maintenanceRecordId=163
+
 UPDATE
 
 http://localhost:8080/Acme-ANS-D03/technician/task/update
