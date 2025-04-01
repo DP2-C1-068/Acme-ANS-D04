@@ -30,6 +30,7 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 		Task task;
 		Technician technician;
 
+		// TODO Desautorizar la peticion si no hay ID
 		masterId = super.getRequest().getData("id", int.class);
 		task = this.repository.findTaskById(masterId);
 		technician = task == null ? null : task.getTechnician();
@@ -58,6 +59,7 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 
 		dataset = super.unbindObject(task, "description", "priority", "estimatedDurationHours", "draftMode");
 		dataset.put("types", choices);
+		// TODO hacer unbind de type
 
 		super.getResponse().addData(dataset);
 	}

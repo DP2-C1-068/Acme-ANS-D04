@@ -25,13 +25,16 @@ public class AdministratorAircraftUpdateService extends AbstractGuiService<Admin
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
+		// Para homogeneizar, comprobar que realmente hay un id y que este id hace referencia a un aircraft, en este acaso esta autorizado, si no no.
 	}
 
 	@Override
 	public void load() {
 		Aircraft aircraft;
+		int aircraftId;
 
-		aircraft = new Aircraft();
+		aircraftId = super.getRequest().getData("id", int.class);
+		aircraft = this.repository.findAircraftById(aircraftId);
 
 		super.getBuffer().addData(aircraft);
 	}

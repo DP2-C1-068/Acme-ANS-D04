@@ -32,6 +32,7 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 		int masterId;
 		MaintenanceRecord maintenanceRecord;
 
+		// TODO comprobar si el ID aparece, sino desautorizar
 		masterId = super.getRequest().getData("id", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
 		status = maintenanceRecord != null && (super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()) || !maintenanceRecord.isDraftMode());

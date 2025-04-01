@@ -31,6 +31,9 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
 
+		// TODO Comprobar si el id de aircraft esta, y que es un aircraft
+		// TODO comprobar si el ID aparece, sino desautorizar
+
 		maintenanceRecordId = super.getRequest().getData("id", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
@@ -53,6 +56,8 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
 
+		// TODO comprobar si el ID aparece, sino desautorizar
+
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
@@ -69,8 +74,6 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
 		this.repository.save(maintenanceRecord);
-
-		super.getResponse().setView("/technician/maintenance-record/list?mine=true");
 
 	}
 

@@ -28,10 +28,13 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 		int masterId;
 		Aircraft aircraft;
 
-		masterId = super.getRequest().getData("id", int.class);
-		aircraft = this.repository.findAircraftById(masterId);
-		status = super.getRequest().getPrincipal().hasRealmOfType(Administrator.class) && aircraft != null;
+		status = super.getRequest().hasData("id", int.class) ? true : false;
 
+		if (status) {
+			masterId = super.getRequest().getData("id", int.class);
+			aircraft = this.repository.findAircraftById(masterId);
+			status = aircraft != null;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 

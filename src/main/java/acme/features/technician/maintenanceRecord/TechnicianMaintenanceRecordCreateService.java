@@ -47,6 +47,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
 
+		// TODO: a este tecnico ya se le ha buscado antes, no es necesario
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");

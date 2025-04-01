@@ -57,6 +57,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	@Override
 	public void bind(final Task task) {
 
+		// TODO linea no necesaria (ya se cargo en load)
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		super.bindObject(task, "type", "description", "priority", "estimatedDurationHours");
@@ -73,7 +74,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	public void perform(final Task task) {
 		Integer maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
-		Involves involves = new Involves();
+		Involves involves;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
 			super.getRequest().getData("maintenanceRecordId", Integer.class) : null;
@@ -82,6 +83,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 		if (maintenanceRecordId != null) {
 
+			involves = new Involves();
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
 			involves.setTask(task);

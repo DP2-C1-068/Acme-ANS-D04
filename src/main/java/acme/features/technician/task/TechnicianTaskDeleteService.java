@@ -43,6 +43,7 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 		Task task;
 		Technician technician;
 
+		// TODO Si no existe el id desautorizar
 		taskId = super.getRequest().getData("id", int.class);
 		task = this.repository.findTaskById(taskId);
 		technician = task == null ? null : task.getTechnician();
@@ -65,6 +66,7 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 	@Override
 	public void bind(final Task task) {
 
+		// TODO No deberia ser necesario guardar los datos del form, si se va a borrar.
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		super.bindObject(task, "type", "description", "priority", "estimatedDurationHours");
@@ -74,6 +76,7 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void validate(final Task task) {
+		// TODO, no puedo borrar una tarea involucrada en un MR.
 		;
 	}
 
@@ -81,6 +84,7 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 	public void perform(final Task task) {
 		Collection<Involves> involves;
 
+		// Borrar la tarea no debe implicar borrar el involves
 		involves = this.repository.findInvolvesByTaskId(task.getId());
 		this.repository.deleteAll(involves);
 		this.repository.delete(task);
