@@ -30,12 +30,13 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 		Task task;
 		Technician technician;
 
-		// TODO Desautorizar la peticion si no hay ID
-		masterId = super.getRequest().getData("id", int.class);
-		task = this.repository.findTaskById(masterId);
-		technician = task == null ? null : task.getTechnician();
-		status = task != null && (super.getRequest().getPrincipal().hasRealm(technician) || !task.isDraftMode());
-
+		status = super.getRequest().hasData("id", int.class);
+		if (status) {
+			masterId = super.getRequest().getData("id", int.class);
+			task = this.repository.findTaskById(masterId);
+			technician = task == null ? null : task.getTechnician();
+			status = task != null && (super.getRequest().getPrincipal().hasRealm(technician) || !task.isDraftMode());
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -59,7 +60,7 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 
 		dataset = super.unbindObject(task, "description", "priority", "estimatedDurationHours", "draftMode");
 		dataset.put("types", choices);
-		// TODO hacer unbind de type
+		dataset.put("type", choices.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
 	}

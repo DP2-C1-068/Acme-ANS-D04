@@ -57,12 +57,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	@Override
 	public void bind(final Task task) {
 
-		// TODO linea no necesaria (ya se cargo en load)
-		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-
 		super.bindObject(task, "type", "description", "priority", "estimatedDurationHours");
-
-		task.setTechnician(technician);
 	}
 
 	@Override
@@ -104,7 +99,8 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 		dataset.put("technician", task.getTechnician().getIdentity().getFullName());
 		dataset.put("type", choices.getSelected().getKey());
 		dataset.put("types", choices);
-		dataset.put("maintenanceRecordId", super.getRequest().getData("maintenanceRecordId", Integer.class));
+		if (super.getRequest().hasData("maintenanceRecordId"))
+			dataset.put("maintenanceRecordId", super.getRequest().getData("maintenanceRecordId", Integer.class));
 
 		super.getResponse().addData(dataset);
 	}

@@ -96,9 +96,7 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 		} else if (mine)
 			showCreate = true;
 
-		// TODO Observar si el mine se usa en el list.jsp
 		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
-		super.getResponse().addGlobal("mine", mine);
 		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 

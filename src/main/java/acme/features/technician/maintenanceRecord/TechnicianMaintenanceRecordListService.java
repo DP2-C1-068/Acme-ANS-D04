@@ -62,8 +62,6 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 			"technician.licenseNumber", "technician.phoneNumber");
 
 		super.getResponse().addData(dataset);
-		// TODO Comprobar si el mine es necesario dentro de la vista
-		super.getResponse().addGlobal("mine", mine);
 		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 }

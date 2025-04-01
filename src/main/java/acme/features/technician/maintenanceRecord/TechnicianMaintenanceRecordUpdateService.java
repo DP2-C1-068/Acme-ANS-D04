@@ -27,18 +27,23 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status;
+		boolean statusAircraft;
 		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
+		Aircraft aircraft;
+		int aircraftId;
 
-		// TODO Comprobar si el id de aircraft esta, y que es un aircraft
-		// TODO comprobar si el ID aparece, sino desautorizar
-
-		maintenanceRecordId = super.getRequest().getData("id", int.class);
-		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
-		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
-
+		status = super.getRequest().hasData("id", int.class);
+		statusAircraft = super.getRequest().hasData("aircraft", int.class);
+		if (status && statusAircraft) {
+			maintenanceRecordId = super.getRequest().getData("id", int.class);
+			aircraftId = super.getRequest().getData("aircraft", int.class);
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+			aircraft = this.repository.findAircraftById(aircraftId);
+			technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+			status = maintenanceRecord != null && aircraft != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -55,8 +60,6 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
-
-		// TODO comprobar si el ID aparece, sino desautorizar
 
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
