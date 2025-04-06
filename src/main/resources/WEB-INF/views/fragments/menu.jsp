@@ -42,6 +42,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.technician.list-maintenance-record-catalogue" action="/technician/maintenance-record/list" />
 			<acme:menu-suboption code="master.menu.technician.list-task-catalogue" action="/technician/task/list" />
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.technician.show-dashboard" action="/technician/dashboard/show" />
 			
 		</acme:menu-option>
 		

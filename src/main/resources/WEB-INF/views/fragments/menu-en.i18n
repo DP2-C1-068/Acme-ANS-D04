@@ -29,7 +29,7 @@ master.menu.technician.list-my-maintenance-records= List my maintenance records
 master.menu.technician.list-my-tasks = List my tasks
 master.menu.technician.list-maintenance-record-catalogue = List maintenance record catalogue
 master.menu.technician.list-task-catalogue = List task catalogue
-
+master.menu.technician.show-dashboard = Show dashboard
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
