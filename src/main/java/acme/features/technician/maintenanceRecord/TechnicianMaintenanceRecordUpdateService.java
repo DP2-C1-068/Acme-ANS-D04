@@ -26,24 +26,32 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		boolean status;
-		boolean statusAircraft;
+		boolean status = false;
 		int maintenanceRecordId;
-		MaintenanceRecord maintenanceRecord;
-		Technician technician;
-		Aircraft aircraft;
 		int aircraftId;
+		Aircraft aircraft;
+		MaintenanceRecord maintenanceRecord;
+		boolean sameAircraft;
+		boolean isDraft;
+		boolean isTechnician;
 
-		status = super.getRequest().hasData("id", int.class);
-		statusAircraft = super.getRequest().hasData("aircraft", int.class);
-		if (status && statusAircraft) {
+		if (super.getRequest().hasData("id", int.class) && super.getRequest().hasData("aircraft", int.class)) {
 			maintenanceRecordId = super.getRequest().getData("id", int.class);
 			aircraftId = super.getRequest().getData("aircraft", int.class);
+
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 			aircraft = this.repository.findAircraftById(aircraftId);
-			technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
-			status = maintenanceRecord != null && aircraft != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+
+			if (maintenanceRecord != null && aircraft != null) {
+				Technician technician = maintenanceRecord.getTechnician();
+				sameAircraft = aircraft.equals(maintenanceRecord.getAircraft());
+				isDraft = maintenanceRecord.isDraftMode();
+				isTechnician = super.getRequest().getPrincipal().hasRealm(technician);
+
+				status = isDraft && isTechnician && sameAircraft;
+			}
 		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
