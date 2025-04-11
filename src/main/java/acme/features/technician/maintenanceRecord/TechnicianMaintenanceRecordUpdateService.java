@@ -69,8 +69,6 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
 
-		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-
 		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
 	}
 

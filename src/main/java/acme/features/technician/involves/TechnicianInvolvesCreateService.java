@@ -48,10 +48,6 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 	@Override
 	public void bind(final Involves involves) {
 
-		int maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
-		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-
-		involves.setMaintenanceRecord(maintenanceRecord);
 		super.bindObject(involves, "task");
 
 	}
