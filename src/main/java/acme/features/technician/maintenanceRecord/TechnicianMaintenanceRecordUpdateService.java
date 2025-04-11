@@ -72,9 +72,6 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
-
-		maintenanceRecord.setTechnician(technician);
-		maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
 	}
 
 	@Override
