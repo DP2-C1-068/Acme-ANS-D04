@@ -17,7 +17,7 @@ administrator.maintenance-record.form.label.insepctionDueDate = Próxima inspecc
 administrator.maintenance-record.form.label.estimatedCost = Coste estimado:
 administrator.maintenance-record.form.label.notes = Notas:
 administrator.maintenance-record.form.label.aircraft = Aeronave asociada:
-administrator.maintenance-record.form.label.administrator = Técnico asociado: 
+administrator.maintenance-record.form.label.technician = Técnico asociado: 
 
 administrator.maintenance-record.form.placeholder.score = 0.00 - 100.00
 		

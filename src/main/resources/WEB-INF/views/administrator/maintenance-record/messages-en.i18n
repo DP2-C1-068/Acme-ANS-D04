@@ -16,8 +16,8 @@ administrator.maintenance-record.form.label.status = Status:
 administrator.maintenance-record.form.label.insepctionDueDate = Inspection Due Date:
 administrator.maintenance-record.form.label.estimatedCost = Estimated cost:
 administrator.maintenance-record.form.label.notes = Notes:
-administrator.maintenance-record.form.label.aircraft = asociated Aircraft:
-administrator.maintenance-record.form.label.administrator = asociated administrator: 
+administrator.maintenance-record.form.label.aircraft = associated Aircraft:
+administrator.maintenance-record.form.label.technician = associated technician: 
 
 administrator.maintenance-record.form.placeholder.score = 0.00 - 100.00
 		

@@ -22,7 +22,7 @@
 	<acme:input-money code="administrator.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="administrator.maintenance-record.form.label.notes" path="notes"/>
 	<acme:input-select code="administrator.maintenance-record.form.label.aircraft" path="aircraft" choices="${aircrafts}" readonly="${acme:anyOf(_command, 'show|update|publish')}"/>
-	<acme:input-textarea code="administrator.maintenance-record.form.label.administrator" path="administrator" readonly="true"/>
+	<acme:input-textarea code="administrator.maintenance-record.form.label.technician" path="technician" readonly="true"/>
 	
 	
 	<jstl:choose>	 
