@@ -14,13 +14,13 @@ import acme.entities.maintenance.MaintenanceRecord;
 @Repository
 public interface TechnicianDashboardRepository extends AbstractRepository {
 
-	@Query("select count(mr) from MaintenanceRecord mr where mr.status = 'PENDING'")
+	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.PENDING")
 	Integer numberOfMaintenanceRecordsPending();
 
-	@Query("select count(mr) from MaintenanceRecord mr where mr.status = 'IN_PROGRESS'")
+	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.IN_PROGRESS")
 	Integer numberOfMaintenanceRecordsInProgress();
 
-	@Query("select count(mr) from MaintenanceRecord mr where mr.status = 'COMPLETED'")
+	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.COMPLETED")
 	Integer numberOfMaintenanceRecordsCompleted();
 
 	@Query("select mr from MaintenanceRecord mr where mr.inspectionDueDate > current_date order by mr.inspectionDueDate asc")

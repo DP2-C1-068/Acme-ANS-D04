@@ -27,7 +27,7 @@ technician.involves.list.label.task = Task
 
 technician.involves.list.button.create = Create
 
-
+technician.involves.form.error.no-task-to-link = May not be null  
 technician.involves.form.error.no-task-to-unlink = May not be null  
 technician.involves.form.error.fake-task = This task does not exist
 
