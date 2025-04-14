@@ -14,20 +14,20 @@ import acme.entities.maintenance.MaintenanceRecord;
 @Repository
 public interface TechnicianDashboardRepository extends AbstractRepository {
 
-	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.PENDING")
-	Integer numberOfMaintenanceRecordsPending();
+	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.PENDING and mr.technician.id = :technicianId")
+	Integer numberOfMaintenanceRecordsPending(int technicianId);
 
-	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.IN_PROGRESS")
-	Integer numberOfMaintenanceRecordsInProgress();
+	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.IN_PROGRESS and mr.technician.id = :technicianId")
+	Integer numberOfMaintenanceRecordsInProgress(int technicianId);
 
-	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.COMPLETED")
-	Integer numberOfMaintenanceRecordsCompleted();
+	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.COMPLETED and mr.technician.id = :technicianId")
+	Integer numberOfMaintenanceRecordsCompleted(int technicianId);
 
-	@Query("select mr from MaintenanceRecord mr where mr.inspectionDueDate > current_date order by mr.inspectionDueDate asc")
-	MaintenanceRecord nearestMaintenanceRecordByInspectionDueDate(PageRequest pageRequest);
+	@Query("select mr from MaintenanceRecord mr where mr.technician.id = :technicianId order by abs(timestampdiff(second, current_timestamp, mr.inspectionDueDate))")
+	MaintenanceRecord nearestMaintenanceRecordByInspectionDueDate(int technicianId, PageRequest pageRequest);
 
-	@Query("select a from Aircraft a join MaintenanceRecord mr on mr.aircraft = a join Involves i on i.maintenanceRecord = mr group by a order by count(i.task) desc")
-	List<Aircraft> topFiveAircraftsWithMostTasks();
+	@Query("select i.maintenanceRecord.aircraft from Involves i group by i.maintenanceRecord.aircraft order by count(i.task) desc")
+	List<Aircraft> topFiveAircraftsWithMostTasks(PageRequest pageRequest);
 
 	@Query("select avg(mr.estimatedCost.amount) from MaintenanceRecord mr where mr.technician.id = :technicianId and mr.moment >= CURRENT_DATE - 365")
 	Double averageMaintenanceRecordEstimatedCostLastYear(int technicianId);
@@ -41,16 +41,16 @@ public interface TechnicianDashboardRepository extends AbstractRepository {
 	@Query("select stddev(mr.estimatedCost.amount) from MaintenanceRecord mr where mr.technician.id = :technicianId and mr.moment >= CURRENT_DATE - 365")
 	Double deviationMaintenanceRecordEstimatedCostLastYear(int technicianId);
 
-	@Query("select avg(t.estimatedDurationHours) from Task t where t.technician.id = :technicianId")
+	@Query("select avg(i.task.estimatedDurationHours) from Involves i where i.maintenanceRecord.technician.id = :technicianId")
 	Double averageTaskDuration(int technicianId);
 
-	@Query("select min(t.estimatedDurationHours) from Task t where t.technician.id = :technicianId")
+	@Query("select min(i.task.estimatedDurationHours) from Involves i where i.maintenanceRecord.technician.id = :technicianId")
 	Double minimumTaskDuration(int technicianId);
 
-	@Query("select max(t.estimatedDurationHours) from Task t where t.technician.id = :technicianId")
+	@Query("select max(i.task.estimatedDurationHours) from Involves i where i.maintenanceRecord.technician.id = :technicianId")
 	Double maximumTaskDuration(int technicianId);
 
-	@Query("select stddev(t.estimatedDurationHours) from Task t where t.technician.id = :technicianId")
+	@Query("select stddev(i.task.estimatedDurationHours) from Involves i where i.maintenanceRecord.technician.id = :technicianId")
 	Double deviationTaskDuration(int technicianId);
 
 }

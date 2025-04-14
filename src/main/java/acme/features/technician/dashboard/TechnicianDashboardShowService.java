@@ -65,12 +65,12 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		Double maximumTaskDuration;
 		Double deviationTaskDuration;
 
-		numberOfMaintenanceRecordsPending = this.repository.numberOfMaintenanceRecordsPending();
-		numberOfMaintenanceRecordsInProgress = this.repository.numberOfMaintenanceRecordsInProgress();
-		numberOfMaintenanceRecordsCompleted = this.repository.numberOfMaintenanceRecordsCompleted();
+		numberOfMaintenanceRecordsPending = this.repository.numberOfMaintenanceRecordsPending(technicianId);
+		numberOfMaintenanceRecordsInProgress = this.repository.numberOfMaintenanceRecordsInProgress(technicianId);
+		numberOfMaintenanceRecordsCompleted = this.repository.numberOfMaintenanceRecordsCompleted(technicianId);
 
-		nearestMaintenanceRecordByInspectionDueDate = this.repository.nearestMaintenanceRecordByInspectionDueDate(PageRequest.of(0, 1));
-		topFiveAircraftsWithMostTasks = this.repository.topFiveAircraftsWithMostTasks();
+		nearestMaintenanceRecordByInspectionDueDate = this.repository.nearestMaintenanceRecordByInspectionDueDate(technicianId, PageRequest.of(0, 1));
+		topFiveAircraftsWithMostTasks = this.repository.topFiveAircraftsWithMostTasks(PageRequest.of(0, 5));
 
 		averageMaintenanceRecordEstimatedCostLastYear = this.repository.averageMaintenanceRecordEstimatedCostLastYear(technicianId);
 		minimumMaintenanceRecordEstimatedCostLastYear = this.repository.minimumMaintenanceRecordEstimatedCostLastYear(technicianId);
@@ -108,6 +108,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 	public void unbind(final Dashboard dashboard) {
 		Dataset dataset;
 
+		System.out.println(dashboard.getTopFiveAircraftsWithMostTasks());
 		dataset = super.unbindObject(dashboard, //
 			"numberOfMaintenanceRecordsPending", "numberOfMaintenanceRecordsInProgress", //
 			"numberOfMaintenanceRecordsCompleted", "nearestMaintenanceRecordByInspectionDueDate", // 
