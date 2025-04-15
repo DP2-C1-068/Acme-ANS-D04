@@ -29,6 +29,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.list-aircrafts" action="/administrator/aircraft/list"/>
 			<acme:menu-suboption code="master.menu.administrator.list-maintenance-records" action="/administrator/maintenance-record/list"/>
+			<acme:menu-suboption code="master.menu.administrator.show-dashboard" action="/administrator/administrator-dashboard/show"/>
 			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-initial" action="/administrator/system/populate-initial"/>
