@@ -73,13 +73,9 @@ public class AdministratorTaskListService extends AbstractGuiService<Administrat
 	@Override
 	public void unbind(final Collection<Task> tasks) {
 		Integer maintenanceRecordId;
-		MaintenanceRecord maintenanceRecord = null;
 
 		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
 			super.getRequest().getData("maintenanceRecordId", int.class) : null;
-
-		if (maintenanceRecordId != null)
-			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
 		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 	}

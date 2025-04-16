@@ -108,7 +108,6 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 	public void unbind(final Dashboard dashboard) {
 		Dataset dataset;
 
-		System.out.println(dashboard.getTopFiveAircraftsWithMostTasks());
 		dataset = super.unbindObject(dashboard, //
 			"numberOfMaintenanceRecordsPending", "numberOfMaintenanceRecordsInProgress", //
 			"numberOfMaintenanceRecordsCompleted", "nearestMaintenanceRecordByInspectionDueDate", // 
