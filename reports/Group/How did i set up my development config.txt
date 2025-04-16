@@ -1,0 +1,32 @@
+Este documento tiene como objetivo completar el requisito grupal Supplementary I número 23:
+
+23)	Produce a report on how you have set up your development configuration.  
+You must not reproduce the guideline to set it up, but to make it clear that 
+you have followed it, and you have your development configuration ready to work.
+
+En primer lugar, he tenido que configurar dos entornos, mi portátil para uso 
+exclusivo en los follow-ups y mi ordenador de sobremesa para el desarrollo.
+Esto se debe a que padezco una discapacidad visual y me es más sencillo 
+trabajar en un entorno preparado para paliar mis dificultades.
+
+Para la instalación del entorno de desarrollo, al tener ya experiencia en la 
+asignatura, no me ha sido un proceso nuevo, y al ser conocedor 
+de la importancia de seguir los pasos de forma rigurosa, no me fue muy complejo
+la puesta a punto en ambos equipos.
+
+El primer paso que seguí fue la creación de una cuenta personal para la asignatura
+dentro de cada equipo, esto me permite compartimentalizar mis equipos y aislar
+lo máximo posible el entorno de desarrollo, evitando así que factores externos puedan
+producir errores muy complejos de detectar a lo largo del desarrollo.
+
+Una vez la cuenta fue creada, procedí con la desinstalación de cualquier versión de java
+u otro programa similar que pudiera causar la más mínima incompatibilidad o problema, pues
+aunque es posible manejar varias versiones con experiencia, prefiero no arriesgar
+y mantener todos los parámetros posibles según las recomendaciones de la asignatura, siempre
+con el objetivo de minimizar problemas durante el desarrollo.
+
+Por último, tras tener los equipos lo más limpios posibles, procedí a seguir los pasos indicados
+en las diapositivas proporcionadas por los profesores, cuidando de no dar nada por sentado
+y revisar cuidadosamente que los pasos eran ejecutados con exactitud. Finalmente, para mantener 
+el entorno de desarrollo al día y sin problemas, leo el foro con asiduidad y estoy al pendiente
+de las actualizaciones del framework.

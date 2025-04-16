@@ -1,0 +1,26 @@
+Este documento tiene como objetivo completar el requisito grupal Suplementary I número 21:
+
+21)	Produce a report on what you knew about the architecture of a WIS before this subject. 
+
+Antes de cursar esta asignatura, tenía una comprensión básica pero sólida
+de lo que implicaba la arquitectura de un WIS (Web Information System).
+Era consciente de que un sistema de información web estaba compuesto por 
+diferentes capas que facilitaban la separación de responsabilidades. Por ejemplo
+una capa de presentación (interfaz de usuario), una capa lógica
+(procesamiento de datos y reglas de negocio) y una capa de persistencia (acceso a bases de datos).
+También era conocedor del uso de tecnologías como jSP, CSS y JavaScript en el frontend,
+y lenguajes como Java o python en el backend.
+Conocía también el patrón arquitectónico MVC (Modelo-Vista-Controlador), 
+que se utiliza para separar las distintas responsabilidades dentro de una aplicación web. 
+Sabía que en este patrón:
+- El Modelo se encarga de gestionar los datos y la lógica de negocio.
+- La Vista representa la interfaz con el usuario, normalmente en forma de páginas HTML o JSP.
+- El Controlador actúa como intermediario, procesando las peticiones del usuario, 
+actualizando el modelo y seleccionando la vista adecuada para mostrar.
+
+Sin embargo, a lo largo de esta asignatura, me he dado cuenta de que no tenía un 
+conocimiento profundo del funcionamiento real del controlador dentro del flujo de trabajo
+, asi como del propio flujo de una aplicación web, ni de cómo se gestionan las transacciones
+ o la importancia de aplicar principios de seguridad desde las fases iniciales del diseño. 
+ Estos aspectos me han permitido tener una visión más profesional y completa del 
+ desarrollo de sistemas web.

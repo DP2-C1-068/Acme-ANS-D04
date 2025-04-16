@@ -1,0 +1,27 @@
+Este documento tiene como objetivo completar el requisito grupal Suplementary I número 22:
+
+22)	Produce a report on what you knew about testing a WIS before this subject. 
+
+Antes de cursar esta asignatura, conocía algunos conceptos fundamentales relacionados
+con las pruebas en sistemas de información web. Sabía, por ejemplo, que las pruebas 
+unitarias son esenciales para verificar el correcto funcionamiento de métodos o
+componentes individuales del sistema, y también comprendía la importancia de realizar
+pruebas de integración para asegurar que los distintos módulos del sistema colaboran
+adecuadamente entre sí.
+
+Además, tenía nociones básicas sobre la integración continua (IC) y el valor de la 
+automatización de pruebas para mejorar la eficiencia del proceso de desarrollo y
+reducir errores humanos. Sin embargo, mi experiencia era limitada, y nunca había
+aplicado estos conceptos de forma sistemática en un entorno de desarrollo real.
+
+Por otro lado, desconocía en gran medida los aspectos relacionados con las pruebas
+de seguridad, como los distintos tipos de hacking. Pensaba que estas técnicas eran 
+extremadamente complejas y solo accesibles para perfiles muy especializados.
+
+Tras cursar esta asignatura, me siento mucho más preparado para afrontar un 
+proyecto real, no solo desde el punto de vista del desarrollo, sino también 
+considerando la necesidad de validar exhaustivamente la funcionalidad, la fiabilidad
+y la seguridad de una aplicación web. He comprendido la importancia de incorporar
+la seguridad desde las fases iniciales del desarrollo, así como de adoptar una 
+estrategia de pruebas completa y bien planificada como parte del ciclo de vida
+del software.
