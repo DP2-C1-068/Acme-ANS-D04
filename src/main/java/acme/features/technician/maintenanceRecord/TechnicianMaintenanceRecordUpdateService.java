@@ -27,32 +27,36 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status = false;
+		boolean statusAircraft = true;
 		int maintenanceRecordId;
-		int aircraftId;
-		Aircraft aircraft;
 		MaintenanceRecord maintenanceRecord;
-		boolean sameAircraft;
 		boolean isDraft;
 		boolean isTechnician;
+		int aircraftId;
+		Aircraft aircraft;
 
-		if (super.getRequest().hasData("id", int.class) && super.getRequest().hasData("aircraft", int.class)) {
+		if (super.getRequest().hasData("id", int.class)) {
 			maintenanceRecordId = super.getRequest().getData("id", int.class);
-			aircraftId = super.getRequest().getData("aircraft", int.class);
-
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-			aircraft = this.repository.findAircraftById(aircraftId);
 
-			if (maintenanceRecord != null && aircraft != null) {
+			if (maintenanceRecord != null) {
 				Technician technician = maintenanceRecord.getTechnician();
-				sameAircraft = aircraft.equals(maintenanceRecord.getAircraft());
 				isDraft = maintenanceRecord.isDraftMode();
 				isTechnician = super.getRequest().getPrincipal().hasRealm(technician);
 
-				status = isDraft && isTechnician && sameAircraft;
+				status = isDraft && isTechnician;
 			}
 		}
 
-		super.getResponse().setAuthorised(status);
+		if (super.getRequest().hasData("aircraft", int.class)) {
+			aircraftId = super.getRequest().getData("aircraft", int.class);
+			aircraft = this.repository.findAircraftById(aircraftId);
+
+			if (aircraft == null && aircraftId != 0)
+				statusAircraft = false;
+		}
+
+		super.getResponse().setAuthorised(status && statusAircraft);
 	}
 
 	@Override
@@ -70,6 +74,8 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 	public void bind(final MaintenanceRecord maintenanceRecord) {
 
 		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
+		maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
+
 	}
 
 	@Override

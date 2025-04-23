@@ -27,15 +27,30 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean statusTask = true;
+		boolean status = false;
+		int taskId;
+		Task task;
 		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
+		Collection<Task> tasks;
 
 		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+
+		tasks = this.repository.findValidTasksToUnlink(maintenanceRecord);
+
+		if (super.getRequest().hasData("task", int.class)) {
+			taskId = super.getRequest().getData("task", int.class);
+			task = this.repository.findTaskById(taskId);
+
+			if (!tasks.contains(task) && taskId != 0)
+				statusTask = false;
+		}
+
 		status = maintenanceRecord != null && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(status && statusTask);
 	}
 
 	@Override
