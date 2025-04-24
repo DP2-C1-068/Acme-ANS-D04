@@ -12,12 +12,15 @@
 
 package acme.features.technician.dashboard;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
@@ -47,6 +50,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		int technicianId;
 
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Date lastYearDate = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), -1, ChronoUnit.YEARS);
 
 		Integer numberOfMaintenanceRecordsPending;
 		Integer numberOfMaintenanceRecordsInProgress;
@@ -70,12 +74,12 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		numberOfMaintenanceRecordsCompleted = this.repository.numberOfMaintenanceRecordsCompleted(technicianId);
 
 		nearestMaintenanceRecordByInspectionDueDate = this.repository.nearestMaintenanceRecordByInspectionDueDate(technicianId, PageRequest.of(0, 1));
-		topFiveAircraftsWithMostTasks = this.repository.topFiveAircraftsWithMostTasks(PageRequest.of(0, 5));
+		topFiveAircraftsWithMostTasks = this.repository.topFiveAircraftsWithMostTasks(technicianId, PageRequest.of(0, 5));
 
-		averageMaintenanceRecordEstimatedCostLastYear = this.repository.averageMaintenanceRecordEstimatedCostLastYear(technicianId);
-		minimumMaintenanceRecordEstimatedCostLastYear = this.repository.minimumMaintenanceRecordEstimatedCostLastYear(technicianId);
-		maximumMaintenanceRecordEstimatedCostLastYear = this.repository.maximumMaintenanceRecordEstimatedCostLastYear(technicianId);
-		deviationMaintenanceRecordEstimatedCostLastYear = this.repository.deviationMaintenanceRecordEstimatedCostLastYear(technicianId);
+		averageMaintenanceRecordEstimatedCostLastYear = this.repository.averageMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
+		minimumMaintenanceRecordEstimatedCostLastYear = this.repository.minimumMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
+		maximumMaintenanceRecordEstimatedCostLastYear = this.repository.maximumMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
+		deviationMaintenanceRecordEstimatedCostLastYear = this.repository.deviationMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
 
 		averageTaskDuration = this.repository.averageTaskDuration(technicianId);
 		minimumTaskDuration = this.repository.minimumTaskDuration(technicianId);
