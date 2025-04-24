@@ -10,7 +10,7 @@
 
 technician.dashboard.form.title = Technician dashboard
 
-technician.dashboard.form.title.general-indicators = General indicators
+technician.dashboard.form.title.general-indicators = General indicators (published and unpublished tasks and maintenance records)
 technician.dashboard.form.title.maintenance-record-statuses = Maintenance record statuses  
 
 technician.dashboard.form.label.number-of-maintenance-records-pending = Number of pending maintenance records
@@ -18,10 +18,12 @@ technician.dashboard.form.label.number-of-maintenance-records-in-progress = Numb
 technician.dashboard.form.label.number-of-maintenance-records-completed = Number of completed maintenance records
 technician.dashboard.form.label.nearest-maintenance-record-by-inspection-due-date = Nearest maintenance record by inspection due date
 technician.dashboard.form.label.top-five-aircrafts-with-most-tasks = Top five aircrafts with the most tasks associated with their maintenance records
-technician.dashboard.form.label.average-maintenance-record-estimated-cost-last-year = Average estimated cost of my maintenance records last year
-technician.dashboard.form.label.minimum-maintenance-record-estimated-cost-last-year = Minimum estimated cost of my maintenance records last year
-technician.dashboard.form.label.maximum-maintenance-record-estimated-cost-last-year = Maximum estimated cost of my maintenance records last year
-technician.dashboard.form.label.deviation-maintenance-record-estimated-cost-last-year = Deviation in estimated cost of my maintenance records last year
+technician.dashboard.form.label.maintenance-record-stats-estimated-cost-per-currency-last-year = Maintenance record cost per currency
+technician.dashboard.form.label.currency = Currency:
+technician.dashboard.form.label.min = Minimum:
+technician.dashboard.form.label.max = Maximum:
+technician.dashboard.form.label.avg = Average:
+technician.dashboard.form.label.stddev = Standard deviation:
 technician.dashboard.form.label.average-task-duration = Average task duration I’m involved in (hours)
 technician.dashboard.form.label.minimum-task-duration = Minimum task duration I’m involved in (hours)
 technician.dashboard.form.label.maximum-task-duration = Maximum task duration I’m involved in (hours)

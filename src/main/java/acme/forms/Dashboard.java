@@ -31,10 +31,7 @@ public class Dashboard extends AbstractForm {
 	List<Aircraft>				topFiveAircraftsWithMostTasks;
 
 	// 4. Stats on estimated cost of maintenance records in the last year
-	Double						averageMaintenanceRecordEstimatedCostLastYear;
-	Double						minimumMaintenanceRecordEstimatedCostLastYear;
-	Double						maximumMaintenanceRecordEstimatedCostLastYear;
-	Double						deviationMaintenanceRecordEstimatedCostLastYear;
+	List<Object[]>				maintenanceRecordEstimatedCostLastYearStats;
 
 	// 5. Stats on estimated duration of tasks technician is involved in
 	Double						averageTaskDuration;

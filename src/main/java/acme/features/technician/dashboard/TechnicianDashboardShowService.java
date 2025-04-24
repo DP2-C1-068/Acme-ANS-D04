@@ -14,7 +14,9 @@ package acme.features.technician.dashboard;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -59,10 +61,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		MaintenanceRecord nearestMaintenanceRecordByInspectionDueDate;
 		List<Aircraft> topFiveAircraftsWithMostTasks;
 
-		Double averageMaintenanceRecordEstimatedCostLastYear;
-		Double minimumMaintenanceRecordEstimatedCostLastYear;
-		Double maximumMaintenanceRecordEstimatedCostLastYear;
-		Double deviationMaintenanceRecordEstimatedCostLastYear;
+		List<Object[]> maintenanceRecordEstimatedCostLastYearStats;
 
 		Double averageTaskDuration;
 		Double minimumTaskDuration;
@@ -76,10 +75,23 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		nearestMaintenanceRecordByInspectionDueDate = this.repository.nearestMaintenanceRecordByInspectionDueDate(technicianId, PageRequest.of(0, 1));
 		topFiveAircraftsWithMostTasks = this.repository.topFiveAircraftsWithMostTasks(technicianId, PageRequest.of(0, 5));
 
-		averageMaintenanceRecordEstimatedCostLastYear = this.repository.averageMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
-		minimumMaintenanceRecordEstimatedCostLastYear = this.repository.minimumMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
-		maximumMaintenanceRecordEstimatedCostLastYear = this.repository.maximumMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
-		deviationMaintenanceRecordEstimatedCostLastYear = this.repository.deviationMaintenanceRecordEstimatedCostLastYear(technicianId, lastYearDate);
+		maintenanceRecordEstimatedCostLastYearStats = this.repository.maintenanceRecordEstimatedCostLastYearStats(technicianId, lastYearDate);
+
+		Map<String, Integer> currencyCountMap = new HashMap<>();
+		List<Object[]> rawCounts = this.repository.countMaintenanceRecordsByCurrency(technicianId, lastYearDate);
+		for (Object[] entry : rawCounts) {
+			String currency = (String) entry[0];
+			Long count = (Long) entry[1]; // porque count(mr) devuelve Long
+			currencyCountMap.put(currency, count.intValue());
+		}
+
+		for (Object[] stat : maintenanceRecordEstimatedCostLastYearStats) {
+			String currency = (String) stat[0];
+			Integer count = currencyCountMap.get(currency);
+
+			if (count != null && count == 1)
+				stat[4] = "N/D";
+		}
 
 		averageTaskDuration = this.repository.averageTaskDuration(technicianId);
 		minimumTaskDuration = this.repository.minimumTaskDuration(technicianId);
@@ -95,10 +107,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		dashboard.setNearestMaintenanceRecordByInspectionDueDate(nearestMaintenanceRecordByInspectionDueDate);
 		dashboard.setTopFiveAircraftsWithMostTasks(topFiveAircraftsWithMostTasks);
 
-		dashboard.setAverageMaintenanceRecordEstimatedCostLastYear(averageMaintenanceRecordEstimatedCostLastYear);
-		dashboard.setMinimumMaintenanceRecordEstimatedCostLastYear(minimumMaintenanceRecordEstimatedCostLastYear);
-		dashboard.setMaximumMaintenanceRecordEstimatedCostLastYear(maximumMaintenanceRecordEstimatedCostLastYear);
-		dashboard.setDeviationMaintenanceRecordEstimatedCostLastYear(deviationMaintenanceRecordEstimatedCostLastYear);
+		dashboard.setMaintenanceRecordEstimatedCostLastYearStats(maintenanceRecordEstimatedCostLastYearStats);
 
 		dashboard.setAverageTaskDuration(averageTaskDuration);
 		dashboard.setMinimumTaskDuration(minimumTaskDuration);
@@ -115,9 +124,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		dataset = super.unbindObject(dashboard, //
 			"numberOfMaintenanceRecordsPending", "numberOfMaintenanceRecordsInProgress", //
 			"numberOfMaintenanceRecordsCompleted", "nearestMaintenanceRecordByInspectionDueDate", // 
-			"topFiveAircraftsWithMostTasks", "averageMaintenanceRecordEstimatedCostLastYear", //
-			"minimumMaintenanceRecordEstimatedCostLastYear", "maximumMaintenanceRecordEstimatedCostLastYear", //
-			"deviationMaintenanceRecordEstimatedCostLastYear", "averageTaskDuration", //
+			"topFiveAircraftsWithMostTasks", "maintenanceRecordEstimatedCostLastYearStats", "averageTaskDuration", //
 			"minimumTaskDuration", "maximumTaskDuration", "deviationTaskDuration");
 
 		super.getResponse().addData(dataset);

@@ -55,25 +55,21 @@
 	</td>
 </tr>
 
-    <tr>
-        <th scope="row"><acme:print code="technician.dashboard.form.label.average-maintenance-record-estimated-cost-last-year" /></th>
-        <td><acme:print value="${averageMaintenanceRecordEstimatedCostLastYear}" /></td>
-    </tr>
+<tr>
+	<th scope="row">
+		<acme:print code="technician.dashboard.form.label.maintenance-record-stats-estimated-cost-per-currency-last-year" />
+	</th>
+	<td>
+		<jstl:forEach var="stat" items="${maintenanceRecordEstimatedCostLastYearStats}">
+			<acme:print code="technician.dashboard.form.label.currency" /> ${stat[0]}<br />
+			<acme:print code="technician.dashboard.form.label.min" /> ${stat[2]}<br />
+			<acme:print code="technician.dashboard.form.label.max" /> ${stat[3]}<br />
+			<acme:print code="technician.dashboard.form.label.avg" /> ${stat[1]}<br />
+			<acme:print code="technician.dashboard.form.label.stddev" /> ${stat[4]}<br />
+		</jstl:forEach>
+	</td>
+</tr>
     
-    <tr>
-        <th scope="row"><acme:print code="technician.dashboard.form.label.minimum-maintenance-record-estimated-cost-last-year" /></th>
-        <td><acme:print value="${minimumMaintenanceRecordEstimatedCostLastYear}" /></td>
-    </tr>
-
-    <tr>
-        <th scope="row"><acme:print code="technician.dashboard.form.label.maximum-maintenance-record-estimated-cost-last-year" /></th>
-        <td><acme:print value="${maximumMaintenanceRecordEstimatedCostLastYear}" /></td>
-    </tr>
-
-    <tr>
-        <th scope="row"><acme:print code="technician.dashboard.form.label.deviation-maintenance-record-estimated-cost-last-year" /></th>
-        <td><acme:print value="${deviationMaintenanceRecordEstimatedCostLastYear}" /></td>
-    </tr>
 
     <tr>
         <th scope="row"><acme:print code="technician.dashboard.form.label.average-task-duration" /></th>
