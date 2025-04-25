@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>3</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>190</y>
-      <w>570</w>
-      <h>150</h>
+      <x>297</x>
+      <y>264</y>
+      <w>171</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 MaintenanceRecord {ValidMaintenanceRecord}
@@ -24,10 +24,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>0</y>
-      <w>590</w>
-      <h>130</h>
+      <x>294</x>
+      <y>207</y>
+      <w>177</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
@@ -43,10 +43,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1450</x>
-      <y>240</y>
-      <w>110</w>
-      <h>40</h>
+      <x>522</x>
+      <y>279</y>
+      <w>33</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Involved
@@ -56,10 +56,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1260</x>
-      <y>240</y>
-      <w>210</w>
-      <h>60</h>
+      <x>465</x>
+      <y>279</y>
+      <w>63</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>&lt; Involves
 lt=&lt;-x
@@ -72,10 +72,10 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1270</x>
-      <y>10</y>
-      <w>270</w>
-      <h>250</h>
+      <x>468</x>
+      <y>210</y>
+      <w>81</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>&lt; Involves
 lt=&lt;-x
@@ -88,10 +88,10 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>180</y>
-      <w>560</w>
-      <h>150</h>
+      <x>87</x>
+      <y>261</y>
+      <w>168</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Technician {ValidTechnician}
@@ -108,10 +108,10 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>60</y>
-      <w>460</w>
-      <h>140</h>
+      <x>162</x>
+      <y>225</y>
+      <w>138</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>&lt; Performed By
 lt=&lt;-x
@@ -124,10 +124,10 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>250</y>
-      <w>170</w>
-      <h>60</h>
+      <x>252</x>
+      <y>282</y>
+      <w>51</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>&lt; Registered By
 lt=&lt;-x
@@ -140,10 +140,10 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>400</y>
-      <w>570</w>
-      <h>150</h>
+      <x>297</x>
+      <y>327</y>
+      <w>171</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Aircraft {ValidAircraft}
@@ -162,10 +162,10 @@ bg=green
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>970</x>
-      <y>330</y>
-      <w>80</w>
-      <h>90</h>
+      <x>378</x>
+      <y>306</y>
+      <w>24</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>About v
 lt=&lt;-x
@@ -174,5 +174,117 @@ m2=*
 
 </panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>114</x>
+      <y>159</y>
+      <w>57</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidShortText
+--
++ NotBlank
++ Length(min=1, max=50)
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>159</y>
+      <w>57</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidLongText
+--
++ Length(min=0, max=255)
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>27</x>
+      <y>183</y>
+      <w>81</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidLicenseNumber
+--
++ Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>27</x>
+      <y>159</y>
+      <w>81</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidPhoneNumber
+--
++ Pattern(regexp = "^\\+?\\d{6,15}$")
+
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>111</x>
+      <y>315</y>
+      <w>117</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidTechnician
+--
++ License number cannot be duplicated.
++ The first 2 letters of license number must match the first
+letter of the name and surname respectively.
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>327</x>
+      <y>384</y>
+      <w>117</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidAircraft
+--
++ Registration number cannot be duplicated.
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>303</y>
+      <w>165</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidMaintenanceRecord
+--
++ Inspection Due Date must be in the future.
++ Inspection Due Date must be at least 1 minute after the moment of the maintenance.
+bg=RED</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
