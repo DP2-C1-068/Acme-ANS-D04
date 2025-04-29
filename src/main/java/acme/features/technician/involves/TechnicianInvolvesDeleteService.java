@@ -48,7 +48,7 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 				statusTask = false;
 		}
 
-		status = maintenanceRecord != null && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
+		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
 
 		super.getResponse().setAuthorised(status && statusTask);
 	}
