@@ -74,11 +74,9 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 
 	@Override
 	public void validate(final Involves involves) {
-		Collection<Task> tasks;
-		tasks = this.repository.findValidTasksToUnlink(involves.getMaintenanceRecord());
 
 		Task task = super.getRequest().getData("task", Task.class);
-		super.state(task != null && tasks.contains(task), "task", "technician.involves.form.error.no-task-to-unlink");
+		super.state(task != null, "task", "technician.involves.form.error.no-task-to-unlink");
 	}
 
 	@Override

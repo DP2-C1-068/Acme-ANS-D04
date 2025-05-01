@@ -81,7 +81,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		List<Object[]> rawCounts = this.repository.countMaintenanceRecordsByCurrency(technicianId, lastYearDate);
 		for (Object[] entry : rawCounts) {
 			String currency = (String) entry[0];
-			Long count = (Long) entry[1]; // porque count(mr) devuelve Long
+			Long count = (Long) entry[1];
 			currencyCountMap.put(currency, count.intValue());
 		}
 

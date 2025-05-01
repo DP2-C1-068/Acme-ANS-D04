@@ -55,23 +55,30 @@
 	</td>
 </tr>
 
-<tr>
-	<th scope="row">
-		<acme:print code="technician.dashboard.form.label.maintenance-record-stats-estimated-cost-per-currency-last-year" />
-	</th>
-	<td>
-		<jstl:forEach var="stat" items="${maintenanceRecordEstimatedCostLastYearStats}">
-			<acme:print code="technician.dashboard.form.label.currency" /> ${stat[0]}<br />
-			<acme:print code="technician.dashboard.form.label.min" /> ${stat[2]}<br />
-			<acme:print code="technician.dashboard.form.label.max" /> ${stat[3]}<br />
-			<acme:print code="technician.dashboard.form.label.avg" /> ${stat[1]}<br />
-			<acme:print code="technician.dashboard.form.label.stddev" /> ${stat[4]}<br />
-		</jstl:forEach>
-	</td>
-</tr>
-    
+	<tr>
+		<th scope="row"><acme:print
+				code="technician.dashboard.form.label.maintenance-record-stats-estimated-cost-per-currency-last-year" />
+		</th>
+		<td><jstl:forEach var="stat"
+				items="${maintenanceRecordEstimatedCostLastYearStats}">
+				<acme:print code="technician.dashboard.form.label.currency" /> ${stat[0]}<br />
+				<acme:print code="technician.dashboard.form.label.min" />
+				<acme:print value="${stat[2]}" />
+				<br />
+				<acme:print code="technician.dashboard.form.label.max" />
+				<acme:print value="${stat[3]}" />
+				<br />
+				<acme:print code="technician.dashboard.form.label.avg" />
+				<acme:print value="${stat[1]}" />
+				<br />
+				<acme:print code="technician.dashboard.form.label.stddev" />
+				<acme:print value="${stat[4]}" />
+				<br />
+			</jstl:forEach></td>
+	</tr>
 
-    <tr>
+
+	<tr>
         <th scope="row"><acme:print code="technician.dashboard.form.label.average-task-duration" /></th>
         <td><acme:print value="${averageTaskDuration}" /></td>
     </tr>
