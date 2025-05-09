@@ -1,0 +1,106 @@
+En este reporte se pretenden enumerar las cinco mutaciones realizadas en el código y 
+si los test han sido capaces de detectarlas o no.
+
+Primer mutante: Cambiar la cota superior del atributo Priority de la entidad Task a
+11 en vez de 10.
+ 
+Resultado del primer mutante: Han fallado todos los test relacionados con la creacion, edición y publicación de tareas, en concreto:
+	- technician/task/create.safe
+ 	- technician/task/create01.safe
+ 	- technician/task/update.safe
+ 	- technician/task/update01.safe
+ 	- technician/task/publish.safe
+ 	- technician/task/publish01.safe
+
+Podemos considerar que este primer mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Segundo mutante: En el método authorise de la clase TechnicianMaintenanceRecordDeleteService se cambió un operador lógico AND por otro OR,
+en concreto:
+			status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+por
+			status = maintenanceRecord != null || maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+ 
+Resultado del segundo mutante: Ha fallado el test relacionado con los intentos de hacking en relacion al borrado de registros de mantenimientos:
+  
+  	- /technician/maintenance-record/delete.hack
+  	
+Este resultado es correcto, pues al cambiar el primer operador && a ||, estamos autorizando todas las peticiones de borrado de registros a cualquier
+técnico que introduzca un id de registro que exista. El tester#replay espera errores 500 de desautorización, pero recibe peticiones aceptadas con estado 200.
+ 
+Podemos considerar que este segundo mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Tercer mutante: En el método findPublishedMaintenanceRecords de la interfaz TechnicianMaintenanceRecordRepository se cambió en la query el tipo borrador
+de FALSE a TRUE, es decir, cambiamos:
+ 
+ 	@Query("select mr from MaintenanceRecord mr where mr.draftMode = false")
+ 	
+por:
+
+	@Query("select mr from MaintenanceRecord mr where mr.draftMode = true")
+
+Resultado del tercer mutante: Han fallado los siguientes test:
+
+	- /technician/task/list-for-maintenance-record.safe
+	- /technician/task/show.safe
+	- /technician/task/delete.hack
+	- /technician/maintenance-record/list.safe
+	- /technician/maintenance-record/show.safe
+	- /technician/maintenance-record/delete.hack
+	
+Este resultado es esperado, pues en cualquier momento en el que se haya pedido la feature /technician/maintenance-record/list y esta NO haya sido
+desautorizada, la lista de registros de mantenimiento que se devuelven son los no publicados en vez de los publicados, lo que causa discrepancia
+en los test.
+
+Podemos considerar que este tercer mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Cuarto mutante: En la interfaz TechnicianInvolvesRepository, en el método findValidTasksToLink(), se cambiará el último operador lógico, para que en vez de retornar las tareas no vinculadas que, o sean del propio técnico o estén
+publicadas, se retornará las tareas que no estén ya vinculadas, pero que forzosamente tengan que ser del propio técnico y estar publicadas:
+
+	@Query("select t from Task t where t not in (select i.task from Involves i where i.maintenanceRecord = :maintenanceRecord) and (t.draftMode = false or t.technician = :technician)")
+por:
+	@Query("select t from Task t where t not in (select i.task from Involves i where i.maintenanceRecord = :maintenanceRecord) and (t.draftMode = false and t.technician = :technician)")
+
+Resultado del cuarto mutante: Han fallado los siguientes test:
+ 
+ 	- /technician/involves/create.safe
+ 	- /technician/involves/create.hack
+ 	- /technician/involves/delete.safe
+ 	- /technician/involves/delete.hack
+ 	- /technician/maintenance-record/publish01.safe
+ 	
+Este resultado es esperado, pues en cualquier momento en el que se haya pedido la feature /technician/involves/create se ha tenido que obtener el listado de tareas válidas para vinculación,
+ya sea para mostrarlas y que el principal pueda seleccionarlas, o para evitar intentos de GET o POST hacking, ya que para desautorizar peticiones de vinculación de tareas que no existen o no son válidas
+para anexión, se deben obtener las tareas que sí lo son y observar si la tarea pedida esta incluida en el conjunto. 
+ 
+Podemos considerar que este cuarto mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Quinto mutante: En la interfaz TechnicianDashboardRepository, en el método maintenanceRecordEstimatedCostLastYearStats(), se cambio el operador relacional >= por otro <=, véase el cambio:
+
+		@Query("select mr.estimatedCost.currency, AVG(mr.estimatedCost.amount), MIN(mr.estimatedCost.amount), MAX(mr.estimatedCost.amount), STDDEV(mr.estimatedCost.amount) from MaintenanceRecord mr where mr.technician.id = :technicianId and mr.moment >= :lastYearDate group by mr.estimatedCost.currency")
+	
+ por:
+ 		@Query("select mr.estimatedCost.currency, AVG(mr.estimatedCost.amount), MIN(mr.estimatedCost.amount), MAX(mr.estimatedCost.amount), STDDEV(mr.estimatedCost.amount) from MaintenanceRecord mr where mr.technician.id = :technicianId and mr.moment <= :lastYearDate group by mr.estimatedCost.currency")
+ 	
+ 
+Resultado del quinto mutante: Han fallado el sigueinte test:
+
+	- /technician/dashboard/show.safe
+	
+Este resultado es esperado, ya que al mostrar el panel de técnico, aunque los datos se computen de la misma forma, no es sobre los
+mismos registros de mantenimiento, ya que tras esta mutación, se eligen los registros cuyo momento de creación es anterior a 
+1 año antes del momento actual, en vez de ser posteriores a el año anterior al actual.
+ 
+Podemos considerar que este quinto mutante ha sido captado con éxito.
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
