@@ -9,7 +9,6 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
-import acme.constraints.ValidLicenseNumber;
 import acme.constraints.ValidLongText;
 import acme.constraints.ValidPhoneNumber;
 import acme.constraints.ValidShortText;
@@ -28,7 +27,6 @@ public class Technician extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 	@Mandatory
-	@ValidLicenseNumber
 	@Column(unique = true)
 	private String				licenseNumber;
 
