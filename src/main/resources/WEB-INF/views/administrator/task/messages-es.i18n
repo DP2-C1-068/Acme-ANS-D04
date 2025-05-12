@@ -17,17 +17,11 @@ administrator.task.form.label.description = Descripción:
 administrator.task.form.label.priority = Prioridad:
 administrator.task.form.label.estimatedDurationHours = Duración estimada (horas):
 
-administrator.task.form.button.create = Crear
-administrator.task.form.button.update = Actualizar
-administrator.task.form.button.delete = Borrar
-administrator.task.form.button.publish = Publicar
 
-administrator.task.form.placeholder.example = 0.00 - 100.00
+
 
 administrator.task.list.label.type = Tipo
 administrator.task.list.label.description = Descripción
 administrator.task.list.label.priority = Prioridad
 
-administrator.task.list.button.create = Crear
-administrator.task.list.button.link = Vincular
-administrator.task.list.button.unlink = Desvincular
+

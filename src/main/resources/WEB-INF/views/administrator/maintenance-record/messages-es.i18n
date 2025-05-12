@@ -18,21 +18,10 @@ administrator.maintenance-record.form.label.estimatedCost = Coste estimado:
 administrator.maintenance-record.form.label.notes = Notas:
 administrator.maintenance-record.form.label.aircraft = Aeronave asociada:
 administrator.maintenance-record.form.label.technician = Técnico asociado: 
-
-administrator.maintenance-record.form.placeholder.score = 0.00 - 100.00
 		
 administrator.maintenance-record.form.button.tasks = Tareas
-administrator.maintenance-record.form.button.update = Actualizar
-administrator.maintenance-record.form.button.delete = Borrar
-administrator.maintenance-record.form.button.publish = Publicar
-administrator.maintenance-record.form.button.create = Crear
 
 administrator.maintenance-record.list.label.moment = Momento del mantenimiento
 administrator.maintenance-record.list.label.status = Estado
 administrator.maintenance-record.list.label.inspectionDueDate = Próxima inspección
-administrator.maintenance-record.list.label.draftMode = Modo borrador
 
-administrator.maintenance-record.list.button.create = Crear
-
-administrator.maintenance-record.form.error.zero-tasks = Para publicar un registro de mantenimiento, este debe tener al menos una tarea publicada
-administrator.maintenance-record.form.error.not-all-tasks-published = Para publicar un registro de mantenimiento, este debe tener todas sus tareas publicadas

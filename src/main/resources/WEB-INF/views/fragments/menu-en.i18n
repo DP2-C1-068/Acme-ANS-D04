@@ -10,8 +10,6 @@
 
 # master.menu.anonymous #######################################################
 
-master.menu.anonymous = Anonymous
-master.menu.anonymous.favourite-link = Favourite link
 
 # master.menu.administrator ###################################################
 
@@ -32,23 +30,10 @@ master.menu.technician.list-my-tasks = List my tasks
 master.menu.technician.list-maintenance-record-catalogue = List maintenance record catalogue
 master.menu.technician.list-task-catalogue = List task catalogue
 master.menu.technician.show-dashboard = Show dashboard
-# master.menu.provider ########################################################
-
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-profile = General profile
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.provider-profile = Provider profile
-master.menu.user-account.become-consumer = Become a consumer
-master.menu.user-account.consumer-profile = Consumer profile
 master.menu.user-account.become-technician = Become a technician
 master.menu.user-account.technician-profile = Technician profile

@@ -20,12 +20,8 @@ administrator.aircraft.form.label.details = Details:
 administrator.aircraft.form.label.confirmation = Confirm that you wish to update this aircraft.
 administrator.aircraft.form.label.confirmation-create = Confirm that you wish to create this aircraft.
 
-administrator.aircraft.form.placeholder.score = 0.00 - 100.00
 		
-administrator.aircraft.form.button.maintenance-records = Maintenance records
 administrator.aircraft.form.button.update = Update
-administrator.aircraft.form.button.delete = Delete
-administrator.aircraft.form.button.disable = Disable
 administrator.aircraft.form.button.create = Create
 
 administrator.aircraft.list.label.registrationNumber = Registration number

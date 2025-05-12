@@ -19,20 +19,11 @@ administrator.maintenance-record.form.label.notes = Notes:
 administrator.maintenance-record.form.label.aircraft = associated Aircraft:
 administrator.maintenance-record.form.label.technician = associated technician: 
 
-administrator.maintenance-record.form.placeholder.score = 0.00 - 100.00
 		
 administrator.maintenance-record.form.button.tasks = Tasks
-administrator.maintenance-record.form.button.update = Update
-administrator.maintenance-record.form.button.delete = Delete
-administrator.maintenance-record.form.button.publish = Publish
-administrator.maintenance-record.form.button.create = Create
 
 administrator.maintenance-record.list.label.moment = Maintenance moment
 administrator.maintenance-record.list.label.status = Status
 administrator.maintenance-record.list.label.inspectionDueDate = Inspection due date
-administrator.maintenance-record.list.label.draftMode = Draft mode
 
-administrator.maintenance-record.list.button.create = Create
 
-administrator.maintenance-record.form.error.zero-tasks = In order to publish a maintenance record, it must have at least one published task
-administrator.maintenance-record.form.error.not-all-tasks-published = In order to publish a maintenance record, it must have all it tasks published

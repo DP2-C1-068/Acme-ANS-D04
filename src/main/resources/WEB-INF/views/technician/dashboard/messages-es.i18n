@@ -11,7 +11,6 @@
 technician.dashboard.form.title = Panel de control del técnico
 
 technician.dashboard.form.title.general-indicators = Indicadores generales (tareas y registros de mantenimiento tanto publicados como no publicados)
-technician.dashboard.form.title.maintenance-record-statuses = Estados de los registros de mantenimiento
 
 technician.dashboard.form.label.number-of-maintenance-records-pending = Número de registros de mantenimiento pendientes
 technician.dashboard.form.label.number-of-maintenance-records-in-progress = Número de registros de mantenimiento en curso
