@@ -31,7 +31,6 @@ import lombok.Setter;
 @ValidMaintenanceRecord
 @Table(indexes = {
 	@Index(columnList = "draftMode"),//
-	@Index(columnList = "status"),//
 	@Index(columnList = "status,technician_id"),//
 	@Index(columnList = "technician_id,moment"),//
 	@Index(columnList = "technician_id,estimatedCost_currency"),//
