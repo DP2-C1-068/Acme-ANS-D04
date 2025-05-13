@@ -24,8 +24,8 @@ public interface TechnicianDashboardRepository extends AbstractRepository {
 	@Query("select count(mr) from MaintenanceRecord mr where mr.status = acme.entities.maintenance.MaintenanceStatus.COMPLETED and mr.technician.id = :technicianId")
 	Integer numberOfMaintenanceRecordsCompleted(int technicianId);
 
-	@Query("select mr from MaintenanceRecord mr where mr.technician.id = :technicianId order by abs(timestampdiff(second, current_timestamp, mr.inspectionDueDate))")
-	MaintenanceRecord nearestMaintenanceRecordByInspectionDueDate(int technicianId, PageRequest pageRequest);
+	@Query("select mr from MaintenanceRecord mr where mr.technician.id = :technicianId order by abs(timestampdiff(second, :currentMoment, mr.inspectionDueDate))")
+	MaintenanceRecord nearestMaintenanceRecordByInspectionDueDate(int technicianId, Date currentMoment, PageRequest pageRequest);
 
 	@Query("select i.maintenanceRecord.aircraft from Involves i where i.maintenanceRecord.technician.id = :technicianId group by i.maintenanceRecord.aircraft order by count(i.task) desc")
 	List<Aircraft> topFiveAircraftsWithMostTasks(int technicianId, PageRequest pageRequest);

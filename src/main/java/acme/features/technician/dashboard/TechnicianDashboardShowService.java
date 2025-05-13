@@ -52,6 +52,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		int technicianId;
 
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Date currentMoment = MomentHelper.getCurrentMoment();
 		Date lastYearDate = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), -1, ChronoUnit.YEARS);
 
 		Integer numberOfMaintenanceRecordsPending;
@@ -72,7 +73,7 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		numberOfMaintenanceRecordsInProgress = this.repository.numberOfMaintenanceRecordsInProgress(technicianId);
 		numberOfMaintenanceRecordsCompleted = this.repository.numberOfMaintenanceRecordsCompleted(technicianId);
 
-		nearestMaintenanceRecordByInspectionDueDate = this.repository.nearestMaintenanceRecordByInspectionDueDate(technicianId, PageRequest.of(0, 1));
+		nearestMaintenanceRecordByInspectionDueDate = this.repository.nearestMaintenanceRecordByInspectionDueDate(technicianId, currentMoment, PageRequest.of(0, 1));
 		topFiveAircraftsWithMostTasks = this.repository.topFiveAircraftsWithMostTasks(technicianId, PageRequest.of(0, 5));
 
 		maintenanceRecordEstimatedCostLastYearStats = this.repository.maintenanceRecordEstimatedCostLastYearStats(technicianId, lastYearDate);
