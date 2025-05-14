@@ -33,8 +33,13 @@ public class TechnicianCourseShowService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void authorise() {
+		int id;
+		boolean status;
 
-		super.getResponse().setAuthorised(true);
+		id = super.getRequest().getData("id", int.class);
+		status = this.repository.findCourseById(id) != null;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

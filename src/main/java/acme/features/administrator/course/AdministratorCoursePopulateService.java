@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
 import acme.client.components.principals.Administrator;
+import acme.client.helpers.SpringHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.course.Course;
@@ -27,13 +28,17 @@ public class AdministratorCoursePopulateService extends AbstractGuiService<Admin
 		String url = "https://courses.edx.org/api/courses/v1/courses/ ";
 
 		try {
-			// Llamada a la API
-			CourseApiResponse response = api.getForObject(url, CourseApiResponse.class);
+			List<Course> courses;
 
-			// Mapeamos los datos a Course
-			List<Course> courses = response.getResults().stream().map(CourseData::toCourse).toList();
+			if (SpringHelper.isRunningOn("testing"))
+				courses = this.createMockedCourses();
+			else {
+				// Hacemos la llamada a la API externa
+				CourseApiResponse response = api.getForObject(url, CourseApiResponse.class);
+				courses = response.getResults().stream().map(CourseData::toCourse).toList();
+			}
 
-			// Filtramos los que ya existen (por courseId)
+			// Filtramos duplicados por courseId
 			List<String> existingIds = this.repository.findAllCourseIds();
 			List<Course> newCourses = courses.stream().filter(course -> !existingIds.contains(course.getCourseId())).toList();
 
