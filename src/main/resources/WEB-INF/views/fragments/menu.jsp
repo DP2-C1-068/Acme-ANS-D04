@@ -28,7 +28,8 @@
 			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-initial" action="/administrator/system/populate-initial"/>
-			<acme:menu-suboption code="master.menu.administrator.populate-db-sample" action="/administrator/system/populate-sample"/>			
+			<acme:menu-suboption code="master.menu.administrator.populate-db-sample" action="/administrator/system/populate-sample"/>	
+			<acme:menu-suboption code="master.menu.administrator.populate-db-course" action="/administrator/course/populate"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
 			
@@ -40,6 +41,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.technician.list-maintenance-record-catalogue" action="/technician/maintenance-record/list" />
 			<acme:menu-suboption code="master.menu.technician.list-task-catalogue" action="/technician/task/list" />
+			<acme:menu-suboption code="master.menu.technician.list-courses" action="/technician/course/list" />
+			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.technician.show-dashboard" action="/technician/dashboard/show" />
 			
