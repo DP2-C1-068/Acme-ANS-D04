@@ -1,0 +1,33 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+administrator.banned-passenger.form.title = Banned passenger Form
+administrator.banned-passenger.list.title = Listing of banned passengers
+
+administrator.banned-passenger.form.label.name = Name:
+administrator.banned-passenger.form.label.birthDate = Birth date:
+administrator.banned-passenger.form.label.passport = Passport:
+administrator.banned-passenger.form.label.nationality = Nationality:
+administrator.banned-passenger.form.label.reason = Reason:
+administrator.banned-passenger.form.label.banDate = Ban date:
+administrator.banned-passenger.form.label.liftDate = Lift date:
+administrator.banned-passenger.form.label.confirmation = Confirm that you wish to update this passenger
+administrator.banned-passenger.form.label.confirmation-create = Confirm that you wish to create this passenger
+
+administrator.banned-passenger.list.label.name = Name
+administrator.banned-passenger.list.label.passport = Passport
+administrator.banned-passenger.list.label.banDate = Ban date
+administrator.banned-passenger.list.label.liftDate = Lift date
+
+
+administrator.banned-passenger.list.button.create = Create
+administrator.banned-passenger.form.button.create = Create
+administrator.banned-passenger.form.button.update = Update

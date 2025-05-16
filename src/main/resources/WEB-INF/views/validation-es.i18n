@@ -26,3 +26,7 @@ acme.validation.maintenance-record.future-inspection-due-date.message = La fecha
 
 acme.validation.task.maintenance-record-linked.message = Para borrar una tarea, esta no debe tener registros de mantenimiento vinculados
 
+acme.validation.banned-passenger.passport.message = Debe tener entre 6 y 9 letras mayúsculas o cifras
+acme.validation.banned-passenger.duplicated-passport.message = Este pasaporte ya esta en uso
+acme.validation.banned-passenger.lift-date.message = Debe ser posterior a la fecha del veto
+acme.validation.banned-passenger.birth-date.message = Debe ser anterior a la fecah del veto

@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-acme.validation.header.message      = Must have from 1 to 75 characters
+acme.validation.header.message      = Must have from 1 to 50 characters
 acme.validation.text.message           = Must have from 1 to 255 characters
 acme.validation.optional-text.message           = Must have from 0 to 255 characters
 
@@ -25,3 +25,7 @@ acme.validation.maintenance-record.future-inspection-due-date.message = The next
 
 acme.validation.task.maintenance-record-linked.message = In order to delete a task it must not have any maintenance records linked
 
+acme.validation.banned-passenger.passport.message = Must be 6 to 9 uppercase letters or digits
+acme.validation.banned-passenger.duplicated-passport.message = Already in use
+acme.validation.banned-passenger.lift-date.message = Must be after ban date
+acme.validation.banned-passenger.birth-date.message = Must be before ban date

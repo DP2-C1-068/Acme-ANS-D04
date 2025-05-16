@@ -25,6 +25,10 @@
 			<acme:menu-suboption code="master.menu.administrator.list-aircrafts" action="/administrator/aircraft/list"/>
 			<acme:menu-suboption code="master.menu.administrator.list-maintenance-records" action="/administrator/maintenance-record/list"/>
 			<acme:menu-suboption code="master.menu.administrator.show-dashboard" action="/administrator/administrator-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.administrator.list-currently-banned-passengers" action="/administrator/banned-passenger/list"/>
+			<acme:menu-suboption code="master.menu.administrator.list-lifted-banned-passengers" action="/administrator/banned-passenger/list?liftedBan"/>
+			<acme:menu-suboption code="master.menu.administrator.list-last-month-banned-passengers" action="/administrator/banned-passenger/list?lastMonth"/>
+
 			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-initial" action="/administrator/system/populate-initial"/>
