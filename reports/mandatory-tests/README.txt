@@ -1,11 +1,18 @@
-Esta carpeta esta pensada para albergar los test que se ejecutan en la versión del proyecto en la
-cuál se había realizado el testing formal para todos los requisitos funcionales menos los requisitos
-GRUPALES SUPLEMENTARIOS II.
+Esta carpeta está destinada a albergar los tests correspondientes a la versión del proyecto en la 
+que se llevó a cabo el testing formal de todos los requisitos funcionales, con la excepción de los 
+requisitos Grupales Suplementarios II.
 
-La creación de esta nueva entidad que alberga objetos en la base de datos ha hecho que los test no sean
-reproducibles, pues en los casos de prueba donde se crea una nueva entidad, el identificador que recibe no 
-es el que espera la base de datos, pues el primero libre de cuando se realizó el testing formal no es el
-primero libre ahora. (Antes el primero libre era id:217 y ahora es id:266)
+La incorporación de una nueva entidad que persiste objetos en la base de datos ha provocado que 
+los tests anteriores no sean reproducibles. En los casos de prueba donde se crea una nueva entidad, 
+el identificador asignado no coincide con el esperado, ya que el primer ID libre ha cambiado desde 
+que se realizó el testing formal. Por ejemplo, anteriormente el primer ID libre era 217, mientras 
+que ahora es 266.
 
-Por este motivo, esta versión del proyecto solo cuenta con los test relativos a la entidad BannedPassenger,
-la cual es la correspondiente a los requisitos funcionales relativos a GRUPAL SUPLEMENTARIO II.
+Además, se detectó una pequeña errata durante las pruebas: el mensaje de validación en inglés 
+asociado a la clave "acme.validation.header.message", utilizado en anotaciones @ValidShortText 
+(para restringir atributos a entre 1 y 50 caracteres), mostraba incorrectamente: 
+"Must be between 1 and 75 characters". Este error ha sido corregido en la nueva versión del proyecto, 
+donde ahora se muestra el mensaje adecuado: "Must be between 1 and 50 characters".
+
+Por estos motivos, esta versión del proyecto solo incluye los tests correspondientes a la entidad 
+BannedPassenger, que está relacionada con los requisitos funcionales del bloque Grupal Suplementario II.
