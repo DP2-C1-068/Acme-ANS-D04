@@ -42,13 +42,14 @@ public class AdministratorBannedPassengerListService extends AbstractGuiService<
 	public void load() {
 		Collection<BannedPassenger> passengers;
 		Date oneMonthAgo = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), -1, ChronoUnit.MONTHS);
+		Date currentMoment = MomentHelper.getCurrentMoment();
 
 		if (super.getRequest().hasData("liftedBan", boolean.class))
-			passengers = this.repository.findBannedPassengersLiftedBan();
+			passengers = this.repository.findBannedPassengersLiftedBan(currentMoment);
 		else if (super.getRequest().hasData("lastMonth", boolean.class))
 			passengers = this.repository.findBannedPassengersLastMonth(oneMonthAgo);
 		else
-			passengers = this.repository.findBannedPassengersNotLiftedBan();
+			passengers = this.repository.findBannedPassengersNotLiftedBan(currentMoment);
 
 		super.getBuffer().addData(passengers);
 	}

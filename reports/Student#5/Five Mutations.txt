@@ -1,5 +1,5 @@
 En este reporte se pretenden enumerar las cinco mutaciones realizadas en el código y 
-si los test han sido capaces de detectarlas o no.
+si los test han sido capaces de detectarlas o no (requisito individual).
 
 Primer mutante: Cambiar la cota superior del atributo Priority de la entidad Task a
 11 en vez de 10.

@@ -1,0 +1,119 @@
+En este reporte se pretenden enumerar las cinco mutaciones realizadas en el código y 
+si los test han sido capaces de detectarlas o no (requisito grupal).
+
+Primer mutante: Cambiar el patrón de pasaporte perteneciente a la clase BannedPassenger:
+
+inicialmente era:
+
+"^[A-Z0-9]{6,9}$"
+
+se ha cambiado a:
+
+"^[A-Z0-9]{6,10}$"
+ 
+Resultado del primer mutante: Han fallado todos los test relacionados con la creacion y edición de BannedPassenger, en concreto:
+
+	- administrator/banned-passenger/create.safe
+ 	- administrator/banned-passenger/update.safe
+ 	
+Esto es lógico, pues al permitir un número o letra adicional en el pasaporte, valores límite que antes 
+no eran válidos como "1234567890" ahora si lo son, y el replayer asi lo detecta.
+
+Podemos considerar que este primer mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Segundo mutante: En el método load de la clase AdministratorBannedPassengerListService se cambió la forma en la que se calcula la fecha oneMonthAgo
+para que en vez de devolver la fecha actual hace 1 mes, devuelva la fecha actual dentro de 1 mes.
+en concreto:
+			Date oneMonthAgo = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), -1, ChronoUnit.MONTHS);
+por
+			Date oneMonthAgo = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.MONTHS);
+ 
+Resultado del segundo mutante: Han fallado todos los test en los que alguna vez se pide la feature
+"administrator/banned-passenger/list?lastMonth":
+  
+  	- administrator/banned-passenger/list.safe
+  	- administrator/banned-passenger/show.safe
+	- administrator/banned-passenger/update.safe  	
+	
+Este resultado es correcto,  debido a que espera ciertos pasajeros, pero no recibe ninguno, ya que
+al ser el atributo "banDate" en pasado, no puede existir ninguno que haya sido baneado 1 mes en el futuro y por
+lo tanto, la lista que devuelve esta vacía.
+ 
+Podemos considerar que este segundo mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Tercer mutante: En el método load de la clase AdministratorBannedPassengerUpdateService cambiamos la última línea:
+ 
+		super.getResponse().setAuthorised(status);
+ 	
+por:
+
+		super.getResponse().setAuthorised(true);
+
+Resultado del tercer mutante: Han fallado los siguientes test:
+
+	- administrator/banned-passenger/update.hack
+	- administrator/banned-passenger/update01.hack
+	
+Este resultado es esperado, pues en cualquier momento en el que se haya pedido la feature 
+"administrator/banned-passenger/update?id=9999" o cualquier otro identificador que no corresponda a 
+un bannedPassenger en la base de datos en vez de saltar un error de autorización, obtenemos un error
+en el método getData() de la clase workArea.
+
+Podemos considerar que este tercer mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Cuarto mutante: En la interfaz AdministratorBannedPassengerRepository, en el método findBannedPassengersNotLiftedBan(), se cambiará 
+el operador relacional ">" por "<=":
+
+	@Query("select bp from BannedPassenger bp where bp.liftDate = null or bp.liftDate > :currentMoment")
+por:
+	@Query("select bp from BannedPassenger bp where bp.liftDate = null or bp.liftDate <= :currentMoment")
+
+Resultado del cuarto mutante: Han fallado todos los test que han tenido que llamar a la feature
+"administrator/banned-passenger/list" (sin parámetros adicionales):
+ 
+ 	- administrator/banned-passenger/list.safe
+  	- administrator/banned-passenger/create.safe
+ 	
+Este resultado es esperado, pues en cualquier momento en el que se haya pedido la feature "administrator/banned-passenger/list" se ha tenido que obtener el listado de
+pasajeros con un veto no levantado (y por tanto llamar al método mutado), pero con el cambio mutante, estamos obteniendo los pasajeros con el veto levantado, por lo tanto, el sistema espera una serie de pasajeros
+(los vetados), y recibe los no vetados. Gracias a la rigurosa población de la entidad, se ha detectado este cambio.
+ 
+Podemos considerar que este cuarto mutante ha sido captado con éxito.
+-------------------------------------------------------------------------------------------------------
+Quinto mutante: En la interfaz AdministratorBannedPassengerRepository, en el método findBannedPassengersNotLiftedBan(), se cambiará 
+el operador lógico "or" por "and":
+
+		@Query("select bp from BannedPassenger bp where bp.liftDate = null or bp.liftDate > :currentMoment")
+	
+ por:
+		@Query("select bp from BannedPassenger bp where bp.liftDate = null and bp.liftDate > :currentMoment")
+ 	
+ 
+Resultado del quinto mutante: Han fallado todos los test que han tenido que llamar a la feature
+"administrator/banned-passenger/list" (sin parámetros adicionales):
+ 
+ 	- administrator/banned-passenger/list.safe
+  	- administrator/banned-passenger/create.safe
+	
+Este resultado es esperado, pues en cualquier momento en el que se haya pedido la feature 
+"administrator/banned-passenger/list" se ha tenido que obtener el listado de
+pasajeros con un veto no levantado (y por tanto llamar al método mutado), pero con el cambio 
+mutante, el sistema no nos retorna nada, esto se debe a que al cambiar el operador lógico, primero
+se comprabará si la fecha de levantamiento del veto es nula, en caso de que lo sea, procederá a comprobar
+que la fecha de levantamiento sea posterior al momento actual, pero como esta debe ser nula, es una query
+paradójica que ningun pasajero será capaz de cumplir.
+ 
+Podemos considerar que este quinto mutante ha sido captado con éxito.
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
