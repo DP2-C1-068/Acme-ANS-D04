@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>3</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>297</x>
-      <y>264</y>
-      <w>171</w>
-      <h>45</h>
+      <x>450</x>
+      <y>265</y>
+      <w>285</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 MaintenanceRecord {ValidMaintenanceRecord}
@@ -24,10 +24,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>294</x>
-      <y>207</y>
-      <w>177</w>
-      <h>39</h>
+      <x>445</x>
+      <y>170</y>
+      <w>295</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
@@ -43,10 +43,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>279</y>
-      <w>33</w>
-      <h>12</h>
+      <x>825</x>
+      <y>290</y>
+      <w>55</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Involved
@@ -56,10 +56,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>465</x>
-      <y>279</y>
-      <w>63</w>
-      <h>18</h>
+      <x>730</x>
+      <y>290</y>
+      <w>105</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>&lt; Involves
 lt=&lt;-x
@@ -72,10 +72,10 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>210</y>
-      <w>81</w>
-      <h>75</h>
+      <x>735</x>
+      <y>175</y>
+      <w>135</w>
+      <h>125</h>
     </coordinates>
     <panel_attributes>&lt; Involves
 lt=&lt;-x
@@ -88,15 +88,15 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>87</x>
-      <y>261</y>
-      <w>168</w>
-      <h>45</h>
+      <x>100</x>
+      <y>260</y>
+      <w>280</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Technician {ValidTechnician}
 --
-+ licenseNumber: String {Mandatory, ValidLicenseNumber, Column(unique = true)}
++ licenseNumber: String {Mandatory, Column(unique = true)}
 + phoneNumber: String {Mandatory, ValidPhoneNumber, Automapped}
 + specialisation: String {Mandatory, ValidShortText, Automapped}
 + annualHealthTest: boolean {Mandatory, Automapped}
@@ -108,10 +108,10 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>162</x>
-      <y>225</y>
-      <w>138</w>
-      <h>42</h>
+      <x>225</x>
+      <y>200</y>
+      <w>230</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt; Performed By
 lt=&lt;-x
@@ -124,10 +124,10 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>282</y>
-      <w>51</w>
-      <h>18</h>
+      <x>375</x>
+      <y>295</y>
+      <w>85</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>&lt; Registered By
 lt=&lt;-x
@@ -140,10 +140,10 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>297</x>
-      <y>327</y>
-      <w>171</w>
-      <h>45</h>
+      <x>450</x>
+      <y>370</y>
+      <w>285</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Aircraft {ValidAircraft}
@@ -162,10 +162,10 @@ bg=green
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>306</y>
-      <w>24</w>
-      <h>27</h>
+      <x>585</x>
+      <y>335</y>
+      <w>40</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>About v
 lt=&lt;-x
@@ -178,10 +178,10 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>114</x>
-      <y>159</y>
-      <w>57</w>
-      <h>27</h>
+      <x>530</x>
+      <y>105</y>
+      <w>95</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidShortText
@@ -194,10 +194,10 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
-      <y>159</y>
-      <w>57</w>
-      <h>27</h>
+      <x>430</x>
+      <y>105</y>
+      <w>95</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidLongText
@@ -209,26 +209,10 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>27</x>
-      <y>183</y>
-      <w>81</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
-ValidLicenseNumber
---
-+ Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
-
-bg=RED</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>27</x>
-      <y>159</y>
-      <w>81</w>
-      <h>21</h>
+      <x>0</x>
+      <y>350</y>
+      <w>135</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidPhoneNumber
@@ -242,10 +226,10 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>111</x>
-      <y>315</y>
-      <w>117</w>
-      <h>30</h>
+      <x>140</x>
+      <y>350</y>
+      <w>220</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidTechnician
@@ -253,16 +237,17 @@ ValidTechnician
 + License number cannot be duplicated.
 + The first 2 letters of license number must match the first
 letter of the name and surname respectively.
++ License number must follow Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
 bg=RED</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>327</x>
-      <y>384</y>
-      <w>117</w>
-      <h>24</h>
+      <x>500</x>
+      <y>465</y>
+      <w>195</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidAircraft
@@ -274,10 +259,10 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>303</y>
-      <w>165</w>
-      <h>36</h>
+      <x>755</x>
+      <y>330</y>
+      <w>275</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidMaintenanceRecord
@@ -285,6 +270,120 @@ ValidMaintenanceRecord
 + Inspection Due Date must be in the future.
 + Inspection Due Date must be at least 1 minute after the moment of the maintenance.
 bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>665</x>
+      <y>0</y>
+      <w>245</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+Dashboard
+--
++ numberOfMaintenanceRecordsPending: Integer
++ numberOfMaintenanceRecordsInProgress: Integer
++ numberOfMaintenanceRecordsCompleted: Integer
++ nearestMaintenanceRecordByInspectionDueDate: MaintenanceRecord
++ topFiveAircraftsWithMostTasks: List&lt;Aircraft&gt;
++ maintenanceRecordEstimatedCostLastYearStats: List&lt;Object[]&gt;
++ averageTaskDuration: Double
++ minimumTaskDuration: Double
++ maximumTaskDuration: Double
++ deviationTaskDuration: Double
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>0</y>
+      <w>140</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AdministratorDashboard
+--
++ ratioActiveAircrafts: Double
++ ratioNonActiveAircrafts: Double
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1115</x>
+      <y>150</y>
+      <w>270</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+BannedPassenger {ValidBannedPassenger}
+--
++ name: String {Mandatory, ValidShortText, Automapped}
++ birthDate: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
++ passport: String {Mandatory, ValidPassport, Column(unique = true)}
++ nationality: String {Mandatory, ValidShortText, Automapped}
++ reason: String {Mandatory, ValidLongText, Automapped}
++ banDate: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
++ liftDate: Date {Optional, ValidMoment(past=true), Temporal(TIMESTAMP)}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1115</x>
+      <y>85</y>
+      <w>130</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidBannedPassenger
+--
++ Birth date must be before ban date.
++ Lift date must be before ban date.
++ Passport can not be duplicated.
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1255</x>
+      <y>95</y>
+      <w>125</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidPassport
+--
++ Pattern(regexp = "^[A-Z0-9]{6,9}$"
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1125</x>
+      <y>245</y>
+      <w>250</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Course
+--
++ name: String {Mandatory, ValidShortText, Automapped}
++ blocksUrl: Date {Mandatory, ValidUrl, Automapped}
++ org: String {Mandatory, ValidShortText, Automapped}
++ shortDescription: String {Mandatory, ValidLongText, Automapped}
++ start: String {Mandatory, ValidShortText, Automapped}
++ courseId: Date {Mandatory, ValidShortText, Column(unique = true)}
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
