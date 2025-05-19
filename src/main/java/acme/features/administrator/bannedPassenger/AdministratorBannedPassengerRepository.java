@@ -16,7 +16,7 @@ public interface AdministratorBannedPassengerRepository extends AbstractReposito
 	@Query("select bp from BannedPassenger bp where bp.id = :id")
 	BannedPassenger findBannedPassengerById(int id);
 
-	@Query("select bp from BannedPassenger bp where bp.liftDate = null and bp.liftDate > :currentMoment")
+	@Query("select bp from BannedPassenger bp where bp.liftDate = null or bp.liftDate > :currentMoment")
 	Collection<BannedPassenger> findBannedPassengersNotLiftedBan(Date currentMoment);
 
 	@Query("select bp from BannedPassenger bp where bp.liftDate <= :currentMoment")
