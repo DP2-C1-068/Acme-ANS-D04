@@ -37,7 +37,11 @@ public class AdministratorCoursePopulateService extends AbstractGuiService<Admin
 				CourseApiResponse response = api.getForObject(url, CourseApiResponse.class);
 				courses = response.getResults().stream().map(CourseData::toCourse).toList();
 			}
-
+			// EXCEPTION NO ES EL TIPO MAS BASICO
+			// ACUMULAR ERROR EN CASO DE NO PODER COMUNICAR
+			// QUITAR TRY CRATCH, SE ENCARGA EL CONTROLLER
+			// USAR MECANISMO DE ABSTRACT CONTROLLER OPCION 1
+			// inyectar DatabaseManager mediante autowired y usar starTransaction, commit, etc... A nivel de controller OPCION 2
 			// Filtramos duplicados por courseId
 			List<String> existingIds = this.repository.findAllCourseIds();
 			List<Course> newCourses = courses.stream().filter(course -> !existingIds.contains(course.getCourseId())).toList();
