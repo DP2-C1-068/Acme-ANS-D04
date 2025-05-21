@@ -1,12 +1,25 @@
-Esta carpeta está destinada a albergar los tests correspondientes a la versión del proyecto en la 
-que se llevó a cabo el testing formal de todos los requisitos funcionales, con la excepción de los 
-requisitos Grupales Suplementarios II.
+# README.txt
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+Acme AirNav Solutions, Inc.  (Acme ANS, Inc.  for short) is a fictitious company that 
+specialises in helping airports manage their resources and coordinate operations through 
+the development of software solutions.  The goal of this project is to develop a WIS to 
+assist airports in managing logistics for charter flights.  This includes flight scheduling, 
+booking management, crew management, incident reporting and resolution, as well as 
+aircraft maintenance.  
 
 ################### ACLARACIONES A LA HORA DE LA CORRECCIÓN#############################
 
 Este proyecto está destinado a albergar los tests correspondientes a los requisitos funcionales
-Grupales Suplementarios II, relativos a la entidad "BannedPassenger". En este proyecto, se deben
-corregir los aspectos funcionales y de formal testing de esta entidad, el resto de requisitos funcionales
+Grupales Suplementarios II e INDIVIDUALES SUPLEMENTARIOS II, relativos a la entidad "BannedPassenger" y "Course" respectivamente. En este proyecto, se deben
+corregir los aspectos funcionales y de formal testing de estas entidades, el resto de requisitos funcionales
 estan implementados en el otro proyecto entregado. Por otra parte, todos los reportes deben ser corregidos
 en este proyecto, ya que es donde están en su última version.
 
@@ -26,5 +39,6 @@ asociado a la clave "acme.validation.header.message", utilizado en anotaciones @
 donde ahora se muestra el mensaje adecuado: "Must be between 1 and 50 characters".
 
 Por estos motivos, esta versión del proyecto solo incluye los tests correspondientes a la entidad 
-"BannedPassenger", que está relacionada con los requisitos funcionales del bloque Grupal Suplementario II.
+"BannedPassenger" y "Course", que está relacionada con los requisitos funcionales del bloque Grupal Suplementario II
+ e Individual Suplementario II.
  

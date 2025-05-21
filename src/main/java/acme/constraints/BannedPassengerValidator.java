@@ -1,6 +1,8 @@
 
 package acme.constraints;
 
+import java.util.Date;
+
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +36,12 @@ public class BannedPassengerValidator extends AbstractValidator<ValidBannedPasse
 
 		boolean correctLiftedDate;
 		boolean correctBirthDate;
+		Date currentMoment;
 
-		if (bannedPassenger.getLiftDate() != null && bannedPassenger.getBanDate() != null) {
+		if (bannedPassenger.getLiftDate() != null) {
 
-			correctLiftedDate = MomentHelper.isAfterOrEqual(bannedPassenger.getLiftDate(), bannedPassenger.getBanDate());
+			currentMoment = MomentHelper.getCurrentMoment();
+			correctLiftedDate = MomentHelper.isBefore(currentMoment, bannedPassenger.getLiftDate());
 
 			super.state(context, correctLiftedDate, "liftDate", "acme.validation.banned-passenger.lift-date.message");
 		}

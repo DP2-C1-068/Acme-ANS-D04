@@ -1,6 +1,7 @@
 
 package acme.entities.course;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
@@ -29,7 +30,7 @@ public class CourseApiResponse {
 		private String	number;
 		private String	org;
 		private String	short_description;
-		private String	start;
+		private Date	start;
 		private String	start_display;
 		private String	start_type;
 		private String	pacing;

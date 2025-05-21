@@ -18,8 +18,8 @@ aircraft maintenance.
 ################### ACLARACIONES A LA HORA DE LA CORRECCIÓN#############################
 
 Este proyecto está destinado a albergar los tests correspondientes a los requisitos funcionales
-Grupales Suplementarios II, relativos a la entidad "BannedPassenger". En este proyecto, se deben
-corregir los aspectos funcionales y de formal testing de esta entidad, el resto de requisitos funcionales
+Grupales Suplementarios II e INDIVIDUALES SUPLEMENTARIOS II, relativos a la entidad "BannedPassenger" y "Course" respectivamente. En este proyecto, se deben
+corregir los aspectos funcionales y de formal testing de estas entidades, el resto de requisitos funcionales
 estan implementados en el otro proyecto entregado. Por otra parte, todos los reportes deben ser corregidos
 en este proyecto, ya que es donde están en su última version.
 
@@ -39,5 +39,6 @@ asociado a la clave "acme.validation.header.message", utilizado en anotaciones @
 donde ahora se muestra el mensaje adecuado: "Must be between 1 and 50 characters".
 
 Por estos motivos, esta versión del proyecto solo incluye los tests correspondientes a la entidad 
-"BannedPassenger", que está relacionada con los requisitos funcionales del bloque Grupal Suplementario II.
+"BannedPassenger" y "Course", que está relacionada con los requisitos funcionales del bloque Grupal Suplementario II
+ e Individual Suplementario II.
  

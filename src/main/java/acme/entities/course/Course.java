@@ -1,13 +1,18 @@
 
 package acme.entities.course;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidUrl;
 import acme.constraints.ValidLongText;
 import acme.constraints.ValidShortText;
@@ -45,9 +50,9 @@ public class Course extends AbstractEntity {
 	private String				shortDescription;  // Puede ser string vacío o texto descriptivo
 
 	@Mandatory
-	@ValidShortText
-	@Automapped
-	private String				start;              // Timestamp ISO 8601 (ej: "2016-09-12T18:00:00Z")
+	@ValidMoment
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				start;              // Timestamp ISO 8601 (ej: "2016-09-12T18:00:00Z")
 
 	@Mandatory
 	@ValidShortText

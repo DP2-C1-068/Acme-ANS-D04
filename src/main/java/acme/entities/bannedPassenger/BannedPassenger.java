@@ -70,7 +70,7 @@ public class BannedPassenger extends AbstractEntity {
 
 	// CAMBIAR A FUTURO
 	@Optional
-	@ValidMoment(past = true)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				liftDate;
 

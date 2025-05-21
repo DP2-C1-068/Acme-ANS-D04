@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
 import acme.client.components.principals.Administrator;
+import acme.client.helpers.MomentHelper;
 import acme.client.helpers.SpringHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.course.Course;
 import acme.entities.course.CourseApiResponse;
-import acme.entities.course.CourseApiResponse.CourseData;
 
 @GuiService
 public class AdministratorCoursePopulateService extends AbstractGuiService<Administrator, Course> {
@@ -23,36 +23,22 @@ public class AdministratorCoursePopulateService extends AbstractGuiService<Admin
 	// Services ---------------------------------------------------------------
 
 
-	public void populateAndSaveCoursesFromJson() {
+	public List<Course> fetchNewCoursesFromApi() {
 		RestTemplate api = new RestTemplate();
 		String url = "https://courses.edx.org/api/courses/v1/courses/ ";
 
-		try {
-			List<Course> courses;
+		List<Course> courses;
 
-			if (SpringHelper.isRunningOn("testing"))
-				courses = this.createMockedCourses();
-			else {
-				// Hacemos la llamada a la API externa
-				CourseApiResponse response = api.getForObject(url, CourseApiResponse.class);
-				courses = response.getResults().stream().map(CourseData::toCourse).toList();
-			}
-			// EXCEPTION NO ES EL TIPO MAS BASICO
-			// ACUMULAR ERROR EN CASO DE NO PODER COMUNICAR
-			// QUITAR TRY CRATCH, SE ENCARGA EL CONTROLLER
-			// USAR MECANISMO DE ABSTRACT CONTROLLER OPCION 1
-			// inyectar DatabaseManager mediante autowired y usar starTransaction, commit, etc... A nivel de controller OPCION 2
-			// Filtramos duplicados por courseId
-			List<String> existingIds = this.repository.findAllCourseIds();
-			List<Course> newCourses = courses.stream().filter(course -> !existingIds.contains(course.getCourseId())).toList();
-
-			// Guardamos solo los nuevos
-			if (!newCourses.isEmpty())
-				this.repository.saveAll(newCourses);
-
-		} catch (Exception e) {
-			throw new RuntimeException("Error fetching or saving courses: " + e.getMessage(), e);
+		if (SpringHelper.isRunningOn("testing"))
+			courses = this.createMockedCourses();
+		else {
+			CourseApiResponse response = api.getForObject(url, CourseApiResponse.class);
+			courses = response.getResults().stream().map(courseData -> courseData.toCourse()).toList();
 		}
+
+		// Filtrar duplicados por courseId
+		List<String> existingIds = this.repository.findAllCourseIds();
+		return courses.stream().filter(course -> !existingIds.contains(course.getCourseId())).toList();
 	}
 
 	// Mocked data for development ---------------------------------------
@@ -65,7 +51,7 @@ public class AdministratorCoursePopulateService extends AbstractGuiService<Admin
 		c1.setName("AP Physics 1");
 		c1.setOrg("BUx");
 		c1.setShortDescription("Curso introductorio de física.");
-		c1.setStart("2016-09-12T18:00:00Z");
+		c1.setStart(MomentHelper.getCurrentMoment());
 		c1.setCourseId("PY1x");
 
 		Course c2 = new Course();
@@ -73,7 +59,7 @@ public class AdministratorCoursePopulateService extends AbstractGuiService<Admin
 		c2.setName("CS169.1x");
 		c2.setOrg("BerkeleyX");
 		c2.setShortDescription("Fundamentos de Ruby on Rails.");
-		c2.setStart("2016-05-24T20:00:00Z");
+		c2.setStart(MomentHelper.getCurrentMoment());
 		c2.setCourseId("CS169.1x");
 
 		result.add(c1);
